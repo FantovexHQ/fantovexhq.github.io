@@ -3,9 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#050706">
+<meta name="theme-color" content="#32ff8a">
+<meta name="color-scheme" content="dark">
 <meta name="description" content="Fantovex by Subhash: affordable, mobile-friendly websites for shops, cafes and local businesses in Patna.">
 <title>Fantovex — Subhash | Websites for Patna Shops</title>
+<link rel="canonical" href="https://fantovexhq.github.io/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fantovex">
+<meta property="og:url" content="https://fantovexhq.github.io/">
+<meta property="og:title" content="Fantovex — Subhash | Websites for Patna Shops">
+<meta property="og:description" content="Fantovex by Subhash: affordable, mobile-friendly websites for shops, cafes and local businesses in Patna.">
+<meta property="og:image" content="https://fantovexhq.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SUBHASH. — Fantovex, websites for Patna shops">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fantovex — Subhash | Websites for Patna Shops">
+<meta name="twitter:description" content="Fantovex by Subhash: affordable, mobile-friendly websites for shops, cafes and local businesses in Patna.">
+<meta name="twitter:image" content="https://fantovexhq.github.io/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Subhash","url":"https://fantovexhq.github.io/","brand":{"@type":"Brand","name":"Fantovex"},"address":{"@type":"PostalAddress","addressLocality":"Patna","addressCountry":"IN"},"sameAs":["https://www.instagram.com/subhash.digitalhq","https://www.youtube.com/@fantovexHQ","https://github.com/FantovexHQ"]}</script>
 <style>
 :root{
   --bg:#050706;--panel:#0a100d;--panel2:#0e1712;--text:#f2f7f4;
@@ -47,14 +65,14 @@ a{text-decoration:none}
 .pages{height:100%;position:relative}
 .page{
   position:absolute;inset:0;padding:112px max(6%,24px) 55px;
-  display:flex;align-items:center;overflow:auto;opacity:0;visibility:hidden;
+  display:flex;align-items:center;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;opacity:0;visibility:hidden;
   transform:translateX(35px);transition:opacity .38s var(--ease),transform .45s var(--ease),visibility .38s;
 }
 .page.active{opacity:1;visibility:visible;transform:none;z-index:2}
 .page-inner{width:min(1080px,100%);margin:auto}
 .eyebrow{font-size:.72rem;color:var(--green);letter-spacing:.18em;text-transform:uppercase;font-weight:900;margin-bottom:14px}
 h1{font-size:clamp(3.4rem,9vw,7.7rem);line-height:.91;letter-spacing:-.075em;max-width:900px}
-h1 span,h2 span{color:var(--green)}
+h1 span,h2 span,.section-head h3 span{color:var(--green)}
 h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
 .lead{font-size:1.03rem;line-height:1.75;color:var(--muted);max-width:650px;margin:25px 0 30px}
 .actions{display:flex;gap:10px;flex-wrap:wrap}
@@ -63,7 +81,11 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
   border-radius:14px;border:1px solid var(--line);font-weight:850;font-size:.82rem
 }
 .primary{background:var(--green);color:#031109;border-color:var(--green)}
+.btn{min-height:46px;transition:transform .2s var(--ease),border-color .2s,box-shadow .2s}
 .btn:hover{transform:translateY(-2px)}
+.primary{box-shadow:0 0 28px rgba(50,255,138,.22)}
+.primary:hover{box-shadow:0 0 40px rgba(50,255,138,.38)}
+.btn:not(.primary):hover{border-color:rgba(50,255,138,.35)}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
 .hero-art{display:grid;place-items:center}
 .orb{
@@ -96,7 +118,7 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
 .cover{height:145px;padding:20px;display:flex;align-items:flex-end;background:radial-gradient(circle at 75% 25%,rgba(50,255,138,.22),transparent 34%),linear-gradient(135deg,#102018,#050706)}
 .cover strong{font-size:1.55rem;letter-spacing:-.06em}
 .project-body{padding:19px}.project-body p{font-size:.82rem;color:var(--muted);line-height:1.6;min-height:52px}
-.chips{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}.chip{font-size:.65rem;border:1px solid var(--line);padding:5px 7px;border-radius:999px;color:#aab5af}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}.chip{font-size:.7rem;border:1px solid var(--line);padding:5px 7px;border-radius:999px;color:#aab5af}
 .project-body a{font-size:.75rem;color:var(--green);font-weight:800}
 
 .timeline{max-width:850px;margin-top:28px;border-left:1px solid var(--line)}
@@ -111,7 +133,7 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
   padding:17px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.015)
 }
 .contact-link:hover{border-color:rgba(50,255,138,.3)}
-.contact-link small{display:block;color:#6e7a74;font-size:.66rem;margin-top:3px}
+.contact-link small{display:block;color:#a3afa9;font-size:.78rem;margin-top:4px;word-break:break-word}
 .contact-link b{font-size:.8rem;color:var(--green)}
 .note{margin-top:16px;font-size:.7rem!important;color:#606c66!important}
 
@@ -129,7 +151,7 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
 }
 .side-nav.open{transform:none}
 .side-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:35px}
-.side-title{font-size:.72rem;letter-spacing:.16em;color:#65716b;text-transform:uppercase}
+.side-title{font-size:.72rem;letter-spacing:.16em;color:#8b9790;text-transform:uppercase}
 .close{
   width:45px;height:45px;border:1px solid var(--line);border-radius:14px;cursor:pointer;color:#cbd3cf
 }
@@ -139,30 +161,32 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
 }
 .nav-item:hover,.nav-item.active{background:rgba(50,255,138,.07);color:#fff}
 .nav-item.active{border:1px solid rgba(50,255,138,.13)}
-.nav-icon{width:34px;color:#6e7a74;text-align:center;font-size:1.1rem}
+.nav-icon{width:34px;color:#8b9790;text-align:center;font-size:1.1rem}
 .nav-item.active .nav-icon{color:var(--green)}
-.side-bottom{margin-top:auto;padding:18px 14px;border-top:1px solid var(--line);color:#6f7b75;font-size:.72rem;line-height:1.6}
+.side-bottom{margin-top:auto;padding:18px 14px;border-top:1px solid var(--line);color:#8b9790;font-size:.72rem;line-height:1.6}
 
 .hint{position:fixed;z-index:10;bottom:18px;left:50%;transform:translateX(-50%);color:#59655f;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}
 .hint b{color:var(--green);font-weight:800}
 .dots{position:fixed;z-index:10;left:20px;bottom:20px;display:flex;gap:6px}
-.dot{width:5px;height:5px;border-radius:50%;background:#38423d}.dot.active{width:20px;border-radius:10px;background:var(--green)}
+.dot{width:5px;height:5px;border-radius:50%;background:#38423d;transition:width .3s var(--ease)}.dot.active{width:20px;border-radius:10px;background:var(--green);box-shadow:0 0 10px rgba(50,255,138,.5)}
 
 @media(max-width:800px){
   .topbar{top:10px;height:58px}
   .hero-grid,.about-layout,.contact-layout{grid-template-columns:1fr;gap:25px}
   .hero-art{order:-1}
   .orb{width:230px}
-  h1{font-size:clamp(3.25rem,16vw,5.8rem)}
+  h1{font-size:clamp(2.7rem,13.2vw,5.8rem);line-height:.95}
   .page{padding:92px 20px 55px;align-items:flex-start}
-  .page-inner{padding:25px 0 50px}
+  .page-inner{padding:18px 0 40px}
   .project-grid{grid-template-columns:1fr}
   .project{display:grid;grid-template-columns:110px 1fr}.cover{height:100%;min-height:150px}.project-body p{min-height:0}
   .hint{bottom:12px}.dots{left:14px;bottom:13px}
 }
 @media(max-width:500px){
   .side-nav{width:91vw}
-  .lead{font-size:.92rem}
+  .lead{font-size:.98rem;line-height:1.65;margin:18px 0 24px}
+  h2{font-size:clamp(2.3rem,11vw,3.2rem)}
+  .actions .btn{flex:1 1 auto}
   .about-layout,.contact-layout{gap:12px}
   .card{padding:21px}
   .project{display:block}.cover{height:130px}
@@ -178,7 +202,7 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
 .hero-badge{position:absolute;z-index:2;left:22px;bottom:22px;right:22px;padding:18px;border:1px solid rgba(50,255,138,.18);border-radius:20px;background:rgba(4,10,7,.72);backdrop-filter:blur(12px)}
 .hero-badge b{font-size:1.35rem}.hero-badge p{color:#9ba8a1;font-size:.78rem;margin-top:5px}
 .home-section{border:1px solid var(--line);border-radius:28px;padding:28px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.01))}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}.section-head h3{font-size:1.6rem;letter-spacing:-.04em}.section-head p{color:#65716b;font-size:.75rem;max-width:420px;line-height:1.5}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}.section-head h3{font-size:1.6rem;letter-spacing:-.04em}.section-head p{color:var(--muted);font-size:.82rem;max-width:420px;line-height:1.5}
 .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.service-card{padding:20px;border:1px solid var(--line);border-radius:20px;min-height:155px;background:rgba(0,0,0,.12)}.service-card .big{font-size:1.7rem;color:var(--green);font-weight:900;margin-bottom:25px}.service-card h4{font-size:1rem;margin-bottom:7px}.service-card p{font-size:.75rem;color:var(--muted);line-height:1.55}
 .home-projects{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.home-project{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#080c0a}.home-project img{width:100%;height:145px;object-fit:cover;display:block;filter:saturate(.75)}.home-project-body{padding:16px}.home-project-body h4{font-size:1.05rem}.home-project-body p{font-size:.75rem;color:var(--muted);line-height:1.5;margin-top:6px}.home-project-body a{display:inline-block;margin-top:12px;color:var(--green);font-size:.72rem;font-weight:850}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat{padding:20px;border:1px solid var(--line);border-radius:18px}.stat b{display:block;font-size:1.8rem;color:var(--green)}.stat span{font-size:.72rem;color:var(--muted)}
@@ -186,6 +210,21 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
 @media(max-width:800px){.home-hero{grid-template-columns:1fr}.hero-visual{min-height:250px;order:-1}.service-grid{grid-template-columns:1fr 1fr}.home-projects{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.home-contact{grid-template-columns:1fr}}
 @media(max-width:500px){.home-section{padding:20px;border-radius:23px}.service-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:6px}.hero-visual{min-height:220px}}
 
+/* Polish: focus, footer, motion */
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:12px}
+.home-project-body p,.service-card p{font-size:.82rem}
+.stat span{font-size:.78rem}
+.home-projects{grid-template-columns:repeat(4,1fr)}
+.project-grid{grid-template-columns:repeat(2,1fr)}
+.project-body a.soon{color:var(--muted)}
+.site-foot{margin-top:34px;padding:22px 4px 6px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 18px;font-size:.78rem;color:var(--muted)}
+.powered{display:inline-flex;align-items:center;gap:9px;padding:8px 14px;border:1px solid rgba(50,255,138,.22);border-radius:999px;background:rgba(50,255,138,.05);color:#d7dfdb;font-weight:700;letter-spacing:.02em}
+.powered:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green),0 0 22px rgba(50,255,138,.55)}
+.powered b{color:var(--green);font-weight:900;letter-spacing:.04em}
+.side-bottom .powered{font-size:.72rem}
+@media(max-width:800px){.home-projects{grid-template-columns:1fr 1fr}.project-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.home-projects{grid-template-columns:1fr}.site-foot{justify-content:center;text-align:center}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -203,14 +242,14 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
       <button class="close" id="closeMenu" aria-label="Close navigation">✕</button>
     </div>
 
-    <button class="nav-item active" data-page="home"><span class="nav-icon">⌂</span>Home</button>
+    <button class="nav-item active" data-page="home" aria-current="page"><span class="nav-icon">⌂</span>Home</button>
     <button class="nav-item" data-page="about"><span class="nav-icon">○</span>About me</button>
     <button class="nav-item" data-page="experience"><span class="nav-icon">◇</span>My experience</button>
     <button class="nav-item" data-page="projects"><span class="nav-icon">▱</span>My projects</button>
     <button class="nav-item" data-page="contact"><span class="nav-icon">✆</span>Contact me</button>
 
     <div class="side-bottom">
-      
+      <span class="powered">Powered by <b>FANTOVEX</b></span>
     </div>
   </aside>
 
@@ -229,7 +268,7 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
               </div>
             </div>
             <div class="hero-visual">
-              <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80" alt="Modern digital workspace">
+              <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80" alt="Modern digital workspace" width="1000" height="667" fetchpriority="high">
               <div class="hero-badge"><b>SUBHASH<span style="color:var(--green)">.</span></b><p>Build • Improve • Automate</p></div>
             </div>
           </div>
@@ -245,7 +284,7 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
           <div class="home-section">
             <div class="section-head"><div><div class="eyebrow">02 — What I do</div><h3>Digital work, <span>from idea to launch.</span></h3></div><p>These are the areas I’m developing for future client work.</p></div>
             <div class="service-grid">
-              <div class="service-card"><div class="big">01</div><h4>Websites</h4><p>Modern, responsive landing pages and business websites.</p></div>
+              <div class="service-card"><div class="big">01</div><h4>Websites</h4><p>Modern, responsive landing pages and business websites for shops and local businesses.</p></div>
               <div class="service-card"><div class="big">02</div><h4>Digital Presence</h4><p>Social profiles, content direction and online presentation.</p></div>
               <div class="service-card"><div class="big">03</div><h4>AI & Automation</h4><p>AI-assisted workflows and practical automation ideas.</p></div>
               <div class="service-card"><div class="big">04</div><h4>Brand Building</h4><p>Visual identity, positioning and digital brand systems.</p></div>
@@ -260,19 +299,21 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
           <div class="home-section">
             <div class="section-head"><div><div class="eyebrow">04 — My projects</div><h3>Things I've <span>built.</span></h3></div><button class="btn" data-page="projects">See all projects →</button></div>
             <div class="home-projects">
-              <article class="home-project"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=80" alt="Gaming setup representing Fantovex"><div class="home-project-body"><h4>Fantovex</h4><p>Esports brand, community and digital presence.</p><a href="https://fantovexhq.github.io/FantovexHQ-/" target="_blank">View site ↗</a></div></article>
-              <article class="home-project"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80" alt="Technology product representing VOLTRIX"><div class="home-project-body"><h4>VOLTRIX</h4><p>Gaming and tech e-commerce concept.</p><a href="#" data-page="projects">View project →</a></div></article>
-              <article class="home-project"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Laptop representing Nexora AI"><div class="home-project-body"><h4>Nexora AI</h4><p>Text assistant and automation concept.</p><a href="#" data-page="projects">View project →</a></div></article>
+              <article class="home-project"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Gaming setup representing Fantovex"><div class="home-project-body"><h4>Fantovex</h4><p>Esports brand, community and digital presence.</p><a href="https://fantovexhq.github.io/Fantovex-Esports/" target="_blank" rel="noopener">View site ↗</a></div></article>
+              <article class="home-project"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Technology product representing VOLTRIX"><div class="home-project-body"><h4>VOLTRIX</h4><p>Gaming and tech e-commerce concept.</p><a href="https://fantovexhq.github.io/Voltrix-store/" target="_blank" rel="noopener">View site ↗</a></div></article>
+              <article class="home-project"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Laptop representing Nexora AI"><div class="home-project-body"><h4>Nexora AI</h4><p>Text assistant and automation concept.</p><a href="https://nexoraai-black.vercel.app/" target="_blank" rel="noopener">View site ↗</a></div></article>
+              <article class="home-project"><img src="momo.jpg" alt="MOM MOM momo shop website" loading="lazy" width="900" height="560"><div class="home-project-body"><h4>MOM MOM</h4><p>Demo website for a momo shop: menu, timings and WhatsApp ordering.</p><a href="https://fantovexhq.github.io/momo-demo/" target="_blank" rel="noopener">View site ↗</a></div></article>
             </div>
           </div>
 
           <div class="home-section">
             <div class="section-head"><div><div class="eyebrow">05 — Contact</div><h3>Let's build <span>something.</span></h3></div><p>Projects, collaborations or digital work — connect with me.</p></div>
-            <div class="home-contact"><div class="social-row"><a class="social-pill" href="mailto:YOUR_EMAIL@gmail.com">✉ Gmail</a><a class="social-pill" href="https://instagram.com/YOUR_USERNAME" target="_blank">◎ Instagram</a><a class="social-pill" href="https://youtube.com/@YOUR_CHANNEL" target="_blank">▶ YouTube</a><a class="social-pill" href="tel:+91XXXXXXXXXX">☎ Phone</a></div><button class="btn primary" data-page="contact">Contact me →</button></div>
+            <div class="home-contact"><div class="social-row"><a class="social-pill" href="mailto:preamer872@gmail.com">✉ Gmail</a><a class="social-pill" href="https://www.instagram.com/subhash.digitalhq" target="_blank" rel="noopener">◎ Instagram</a><a class="social-pill" href="https://www.youtube.com/@fantovexHQ" target="_blank" rel="noopener">▶ YouTube</a><a class="social-pill" href="tel:+919241483349">☎ Phone</a></div><button class="btn primary" data-page="contact">Contact me →</button></div>
           </div>
 
           <div class="home-section" style="text-align:center;padding:42px 24px"><div class="eyebrow">Build. Improve. Automate.</div><h2>Your next <span>digital project</span> could start here.</h2><p class="lead" style="margin:18px auto 22px">I’m building, learning and creating — one project at a time.</p><button class="btn primary" data-page="contact">Let's work together →</button></div>
         </div>
+        <footer class="site-foot"><span>© 2026 Subhash · Patna, India</span><a class="powered" href="https://fantovexhq.github.io/" aria-label="Powered by Fantovex">Powered by <b>FANTOVEX</b></a></footer>
       </div>
     </section>
 
@@ -300,6 +341,7 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
             </div>
           </div>
         </div>
+        <footer class="site-foot"><span>© 2026 Subhash · Patna, India</span><a class="powered" href="https://fantovexhq.github.io/" aria-label="Powered by Fantovex">Powered by <b>FANTOVEX</b></a></footer>
       </div>
     </section>
 
@@ -310,10 +352,12 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
         <p class="lead">A simple record of the projects and skills that shaped my current direction.</p>
         <div class="timeline">
           <div class="item"><div class="date">Current</div><h3>Digital Management direction</h3><p>Building skills around websites, social media, AI tools, branding, communication and digital systems.</p></div>
+          <div class="item"><div class="date">Project</div><h3>MOM MOM — momo shop website</h3><p>Built a mobile-first demo site for a local momo shop, with menu, timings, outlet photos and WhatsApp ordering.</p></div>
           <div class="item"><div class="date">Project</div><h3>Fantovex — esports brand</h3><p>Created the brand identity, social presence, website concepts and community-building direction.</p></div>
           <div class="item"><div class="date">Project</div><h3>Nexora AI — assistant concept</h3><p>Explored a text-based assistant concept and how an interface can connect commands with actions.</p></div>
           <div class="item"><div class="date">Project</div><h3>VOLTRIX — store concept</h3><p>Designed a mobile-first gaming and tech shopping experience with a clean dark visual system.</p></div>
         </div>
+        <footer class="site-foot"><span>© 2026 Subhash · Patna, India</span><a class="powered" href="https://fantovexhq.github.io/" aria-label="Powered by Fantovex">Powered by <b>FANTOVEX</b></a></footer>
       </div>
     </section>
 
@@ -325,17 +369,22 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
         <div class="project-grid">
           <article class="project">
             <div class="cover"><strong>FANTOVEX<span style="color:var(--green)">.</span></strong></div>
-            <div class="project-body"><h3>Fantovex</h3><p>Esports brand, community and digital presence.</p><div class="chips"><span class="chip">Brand</span><span class="chip">Web</span><span class="chip">Community</span></div><a href="https://fantovexhq.github.io/FantovexHQ-/" target="_blank">View site ↗</a></div>
+            <div class="project-body"><h3>Fantovex</h3><p>Esports brand, community and digital presence.</p><div class="chips"><span class="chip">Brand</span><span class="chip">Web</span><span class="chip">Community</span></div><a href="https://fantovexhq.github.io/Fantovex-Esports/" target="_blank" rel="noopener">View site ↗</a></div>
           </article>
           <article class="project">
             <div class="cover"><strong>VOLTRIX<span style="color:var(--green)">.</span></strong></div>
-            <div class="project-body"><h3>VOLTRIX</h3><p>Gaming and tech e-commerce concept.</p><div class="chips"><span class="chip">E-commerce</span><span class="chip">UI</span></div><a href="#">View project</a></div>
+            <div class="project-body"><h3>VOLTRIX</h3><p>Gaming and tech e-commerce concept.</p><div class="chips"><span class="chip">E-commerce</span><span class="chip">UI</span></div><a href="https://fantovexhq.github.io/Voltrix-store/" target="_blank" rel="noopener">View site ↗</a></div>
           </article>
           <article class="project">
             <div class="cover"><strong>NEXORA <span style="color:var(--green)">AI.</span></strong></div>
-            <div class="project-body"><h3>Nexora AI</h3><p>Text assistant and automation concept.</p><div class="chips"><span class="chip">AI</span><span class="chip">Automation</span></div><a href="https://nexoraai-black.vercel.app/">View project</a></div>
+            <div class="project-body"><h3>Nexora AI</h3><p>Text assistant and automation concept.</p><div class="chips"><span class="chip">AI</span><span class="chip">Automation</span></div><a href="https://nexoraai-black.vercel.app/" target="_blank" rel="noopener">View site ↗</a></div>
+          </article>
+          <article class="project">
+            <div class="cover"><strong>MOM MOM<span style="color:var(--green)">.</span></strong></div>
+            <div class="project-body"><h3>MOM MOM — Momos &amp; More</h3><p>Demo website for a momo shop: menu, timings, outlet photos and WhatsApp ordering.</p><div class="chips"><span class="chip">Local shop</span><span class="chip">Web</span><span class="chip">Mobile-first</span></div><a href="https://fantovexhq.github.io/momo-demo/" target="_blank" rel="noopener">View site ↗</a></div>
           </article>
         </div>
+        <footer class="site-foot"><span>© 2026 Subhash · Patna, India</span><a class="powered" href="https://fantovexhq.github.io/" aria-label="Powered by Fantovex">Powered by <b>FANTOVEX</b></a></footer>
       </div>
     </section>
 
@@ -348,11 +397,10 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
           <div class="card">
             <h3>Direct contact</h3>
             <div class="contact-list">
-              <!-- Replace the placeholder values below with your real details. -->
-              <a class="contact-link" href="preamer872@gmail.com"><span>✉️ <b>Email</b><small>preamer872@gmail.com</small></span><b>Open ↗</b></a>
-              <a class="contact-link" href="tel:+919241483349"><span>☎️ <b>Phone</b><small>+91 9241483449</small></span><b>Call ↗</b></a>
-              <a class="contact-link" href="https://www.instagram.com/subhash.digitalhq?stkn=cTNqODVobzg5ODJ4" target="_blank"><span>◎ <b>Instagram</b><small>Subhadh.digitalhq</small></span><b>Profile ↗</b></a>
-              <a class="contact-link" href="https://www.youtube.com/@fantovexHQ" target="_blank"><span>▶ <b>YouTube</b><small>Fantovex Esports</small></span><b>Channel ↗</b></a>
+              <a class="contact-link" href="mailto:preamer872@gmail.com"><span>✉️ <b>Email</b><small>preamer872@gmail.com</small></span><b>Open ↗</b></a>
+              <a class="contact-link" href="tel:+919241483349"><span>☎️ <b>Phone</b><small>+91 92414 83349</small></span><b>Call ↗</b></a>
+              <a class="contact-link" href="https://www.instagram.com/subhash.digitalhq" target="_blank" rel="noopener"><span>◎ <b>Instagram</b><small>@subhash.digitalhq</small></span><b>Profile ↗</b></a>
+              <a class="contact-link" href="https://www.youtube.com/@fantovexHQ" target="_blank" rel="noopener"><span>▶ <b>YouTube</b><small>Fantovex Esports</small></span><b>Channel ↗</b></a>
             </div>
           </div>
           <div class="card">
@@ -362,14 +410,14 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
               <div class="feature"><div class="icon">S</div><div><b>Digital presence</b><small>Online profile and content direction.</small></div></div>
               <div class="feature"><div class="icon">A</div><div><b>AI & systems</b><small>AI-assisted workflows and experiments.</small></div></div>
             </div>
-            <p class="note">The email, phone, Instagram and YouTube above are placeholders until you give me your real contact details.</p>
           </div>
         </div>
+        <footer class="site-foot"><span>© 2026 Subhash · Patna, India</span><a class="powered" href="https://fantovexhq.github.io/" aria-label="Powered by Fantovex">Powered by <b>FANTOVEX</b></a></footer>
       </div>
     </section>
   </main>
 
-  <div class="dots" id="dots"></div>
+  <div class="dots" id="dots" aria-hidden="true"></div>
   
 </div>
 
@@ -392,7 +440,8 @@ function setPage(name){
   if(!pages.includes(name)) name="home";
   current=name;
   document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===name));
-  document.querySelectorAll(".nav-item").forEach(n=>n.classList.toggle("active",n.dataset.page===name));
+  document.querySelectorAll(".nav-item").forEach(n=>{const on=n.dataset.page===name;n.classList.toggle("active",on);on?n.setAttribute("aria-current","page"):n.removeAttribute("aria-current")});
+  const pg=document.getElementById(name); if(pg) pg.scrollTop=0;
   [...dots.children].forEach((d,i)=>d.classList.toggle("active",pages[i]===name));
   closeNav();
   history.replaceState(null,"","#"+name);
