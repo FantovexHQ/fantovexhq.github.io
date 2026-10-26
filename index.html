@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#050706">
+<meta name="description" content="Fantovex by Subhash: affordable, mobile-friendly websites for shops, cafes and local businesses in Patna.">
+<title>Fantovex — Subhash | Websites for Patna Shops</title>
+<style>
+:root{
+  --bg:#050706;--panel:#0a100d;--panel2:#0e1712;--text:#f2f7f4;
+  --muted:#89968f;--line:rgba(255,255,255,.09);--green:#32ff8a;
+  --green-dark:#0b3e26;--danger:#ff5f5f;--ease:cubic-bezier(.2,.8,.2,1)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden}
+body{
+  background:radial-gradient(circle at 85% 0%,rgba(50,255,138,.10),transparent 30%),var(--bg);
+  color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  touch-action:pan-y
+}
+button,a{font:inherit;color:inherit}
+button{border:0;background:none}
+a{text-decoration:none}
+.site{height:100dvh;position:relative;overflow:hidden}
+.topbar{
+  position:fixed;z-index:20;top:16px;left:50%;transform:translateX(-50%);
+  width:min(1120px,calc(100% - 28px));height:64px;border:1px solid var(--line);
+  background:rgba(7,10,8,.72);backdrop-filter:blur(22px);border-radius:21px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 8px 0 20px
+}
+.brand{font-weight:950;letter-spacing:-.05em;font-size:1.05rem}
+.brand span{color:var(--green)}
+.menu-trigger{
+  width:48px;height:48px;border-radius:16px;background:#0d130f;border:1px solid var(--line);
+  display:grid;place-items:center;cursor:pointer
+}
+.menu-lines,.menu-lines:before,.menu-lines:after{
+  display:block;width:21px;height:2px;background:#fff;border-radius:4px;content:"";transition:.25s var(--ease)
+}
+.menu-lines:before{transform:translateY(-7px)}
+.menu-lines:after{transform:translateY(5px)}
+.menu-trigger.active .menu-lines{background:transparent}
+.menu-trigger.active .menu-lines:before{transform:rotate(45deg)}
+.menu-trigger.active .menu-lines:after{transform:translateY(-2px) rotate(-45deg)}
+
+.pages{height:100%;position:relative}
+.page{
+  position:absolute;inset:0;padding:112px max(6%,24px) 55px;
+  display:flex;align-items:center;overflow:auto;opacity:0;visibility:hidden;
+  transform:translateX(35px);transition:opacity .38s var(--ease),transform .45s var(--ease),visibility .38s;
+}
+.page.active{opacity:1;visibility:visible;transform:none;z-index:2}
+.page-inner{width:min(1080px,100%);margin:auto}
+.eyebrow{font-size:.72rem;color:var(--green);letter-spacing:.18em;text-transform:uppercase;font-weight:900;margin-bottom:14px}
+h1{font-size:clamp(3.4rem,9vw,7.7rem);line-height:.91;letter-spacing:-.075em;max-width:900px}
+h1 span,h2 span{color:var(--green)}
+h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
+.lead{font-size:1.03rem;line-height:1.75;color:var(--muted);max-width:650px;margin:25px 0 30px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 17px;
+  border-radius:14px;border:1px solid var(--line);font-weight:850;font-size:.82rem
+}
+.primary{background:var(--green);color:#031109;border-color:var(--green)}
+.btn:hover{transform:translateY(-2px)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.hero-art{display:grid;place-items:center}
+.orb{
+  width:min(390px,72vw);aspect-ratio:1;border-radius:50%;position:relative;display:grid;place-items:center;
+  background:radial-gradient(circle at 45% 30%,rgba(50,255,138,.20),transparent 35%),#09100c;
+  border:1px solid rgba(50,255,138,.23);box-shadow:0 0 0 22px rgba(50,255,138,.025),0 0 100px rgba(50,255,138,.08)
+}
+.orb:before{content:"";position:absolute;inset:8%;border:1px dashed rgba(50,255,138,.22);border-radius:50%;animation:spin 20s linear infinite}
+.orb b{font-size:clamp(5rem,13vw,9rem);letter-spacing:-.1em}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.about-layout,.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{
+  background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+  border:1px solid var(--line);border-radius:26px;padding:28px
+}
+.card h3{font-size:1.3rem;margin-bottom:12px}
+.card p{color:var(--muted);line-height:1.7}
+.features{display:grid;gap:10px;margin-top:22px}
+.feature{display:flex;gap:13px;padding:14px;border:1px solid var(--line);border-radius:16px}
+.icon{min-width:35px;height:35px;border-radius:11px;display:grid;place-items:center;background:rgba(50,255,138,.07);color:var(--green);font-weight:900}
+.feature small{display:block;color:var(--muted);margin-top:4px;line-height:1.5}
+
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:30px}
+.project{
+  border:1px solid var(--line);border-radius:23px;overflow:hidden;background:#090d0b;
+  transition:.25s var(--ease)
+}
+.project:hover{transform:translateY(-4px);border-color:rgba(50,255,138,.25)}
+.cover{height:145px;padding:20px;display:flex;align-items:flex-end;background:radial-gradient(circle at 75% 25%,rgba(50,255,138,.22),transparent 34%),linear-gradient(135deg,#102018,#050706)}
+.cover strong{font-size:1.55rem;letter-spacing:-.06em}
+.project-body{padding:19px}.project-body p{font-size:.82rem;color:var(--muted);line-height:1.6;min-height:52px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}.chip{font-size:.65rem;border:1px solid var(--line);padding:5px 7px;border-radius:999px;color:#aab5af}
+.project-body a{font-size:.75rem;color:var(--green);font-weight:800}
+
+.timeline{max-width:850px;margin-top:28px;border-left:1px solid var(--line)}
+.item{padding:0 0 27px 31px;position:relative}
+.item:before{content:"";position:absolute;left:-6px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(50,255,138,.07)}
+.item .date{font-size:.68rem;color:var(--green);font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+.item h3{font-size:1.25rem;margin:7px 0}.item p{color:var(--muted);line-height:1.65;max-width:700px}
+
+.contact-list{display:grid;gap:11px}
+.contact-link{
+  display:flex;align-items:center;justify-content:space-between;gap:15px;
+  padding:17px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.015)
+}
+.contact-link:hover{border-color:rgba(50,255,138,.3)}
+.contact-link small{display:block;color:#6e7a74;font-size:.66rem;margin-top:3px}
+.contact-link b{font-size:.8rem;color:var(--green)}
+.note{margin-top:16px;font-size:.7rem!important;color:#606c66!important}
+
+.overlay{
+  position:fixed;z-index:40;inset:0;background:rgba(0,0,0,.52);backdrop-filter:blur(3px);
+  opacity:0;visibility:hidden;transition:.25s
+}
+.overlay.open{opacity:1;visibility:visible}
+.side-nav{
+  position:fixed;z-index:50;top:0;right:0;height:100dvh;width:min(390px,88vw);
+  background:rgba(6,10,8,.97);border-left:1px solid rgba(255,255,255,.09);
+  box-shadow:-25px 0 80px rgba(0,0,0,.45);padding:28px 22px;
+  transform:translateX(102%);transition:transform .42s var(--ease);
+  display:flex;flex-direction:column
+}
+.side-nav.open{transform:none}
+.side-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:35px}
+.side-title{font-size:.72rem;letter-spacing:.16em;color:#65716b;text-transform:uppercase}
+.close{
+  width:45px;height:45px;border:1px solid var(--line);border-radius:14px;cursor:pointer;color:#cbd3cf
+}
+.nav-item{
+  display:flex;align-items:center;gap:16px;padding:18px 14px;border-radius:17px;
+  color:#aeb8b3;font-size:1.05rem;margin-bottom:5px;cursor:pointer;transition:.2s
+}
+.nav-item:hover,.nav-item.active{background:rgba(50,255,138,.07);color:#fff}
+.nav-item.active{border:1px solid rgba(50,255,138,.13)}
+.nav-icon{width:34px;color:#6e7a74;text-align:center;font-size:1.1rem}
+.nav-item.active .nav-icon{color:var(--green)}
+.side-bottom{margin-top:auto;padding:18px 14px;border-top:1px solid var(--line);color:#6f7b75;font-size:.72rem;line-height:1.6}
+
+.hint{position:fixed;z-index:10;bottom:18px;left:50%;transform:translateX(-50%);color:#59655f;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}
+.hint b{color:var(--green);font-weight:800}
+.dots{position:fixed;z-index:10;left:20px;bottom:20px;display:flex;gap:6px}
+.dot{width:5px;height:5px;border-radius:50%;background:#38423d}.dot.active{width:20px;border-radius:10px;background:var(--green)}
+
+@media(max-width:800px){
+  .topbar{top:10px;height:58px}
+  .hero-grid,.about-layout,.contact-layout{grid-template-columns:1fr;gap:25px}
+  .hero-art{order:-1}
+  .orb{width:230px}
+  h1{font-size:clamp(3.25rem,16vw,5.8rem)}
+  .page{padding:92px 20px 55px;align-items:flex-start}
+  .page-inner{padding:25px 0 50px}
+  .project-grid{grid-template-columns:1fr}
+  .project{display:grid;grid-template-columns:110px 1fr}.cover{height:100%;min-height:150px}.project-body p{min-height:0}
+  .hint{bottom:12px}.dots{left:14px;bottom:13px}
+}
+@media(max-width:500px){
+  .side-nav{width:91vw}
+  .lead{font-size:.92rem}
+  .about-layout,.contact-layout{gap:12px}
+  .card{padding:21px}
+  .project{display:block}.cover{height:130px}
+}
+
+/* Rich home page */
+.home-stack{display:grid;gap:22px;margin-top:34px}
+.home-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:stretch}
+.hero-copy{padding:6px 0}
+.hero-visual{position:relative;min-height:360px;border:1px solid var(--line);border-radius:30px;overflow:hidden;background:linear-gradient(145deg,#10261a,#07100b 58%,#050706)}
+.hero-visual img{width:100%;height:100%;object-fit:cover;opacity:.45;filter:saturate(.75) contrast(1.05)}
+.hero-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(3,10,6,.25),rgba(3,10,6,.82));pointer-events:none}
+.hero-badge{position:absolute;z-index:2;left:22px;bottom:22px;right:22px;padding:18px;border:1px solid rgba(50,255,138,.18);border-radius:20px;background:rgba(4,10,7,.72);backdrop-filter:blur(12px)}
+.hero-badge b{font-size:1.35rem}.hero-badge p{color:#9ba8a1;font-size:.78rem;margin-top:5px}
+.home-section{border:1px solid var(--line);border-radius:28px;padding:28px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.01))}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}.section-head h3{font-size:1.6rem;letter-spacing:-.04em}.section-head p{color:#65716b;font-size:.75rem;max-width:420px;line-height:1.5}
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.service-card{padding:20px;border:1px solid var(--line);border-radius:20px;min-height:155px;background:rgba(0,0,0,.12)}.service-card .big{font-size:1.7rem;color:var(--green);font-weight:900;margin-bottom:25px}.service-card h4{font-size:1rem;margin-bottom:7px}.service-card p{font-size:.75rem;color:var(--muted);line-height:1.55}
+.home-projects{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.home-project{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#080c0a}.home-project img{width:100%;height:145px;object-fit:cover;display:block;filter:saturate(.75)}.home-project-body{padding:16px}.home-project-body h4{font-size:1.05rem}.home-project-body p{font-size:.75rem;color:var(--muted);line-height:1.5;margin-top:6px}.home-project-body a{display:inline-block;margin-top:12px;color:var(--green);font-size:.72rem;font-weight:850}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat{padding:20px;border:1px solid var(--line);border-radius:18px}.stat b{display:block;font-size:1.8rem;color:var(--green)}.stat span{font-size:.72rem;color:var(--muted)}
+.home-contact{display:grid;grid-template-columns:1fr auto;align-items:center;gap:25px}.social-row{display:flex;gap:9px;flex-wrap:wrap}.social-pill{padding:11px 14px;border:1px solid var(--line);border-radius:999px;font-size:.75rem;color:#d7dfdb}.social-pill:hover{border-color:rgba(50,255,138,.35);color:var(--green)}
+@media(max-width:800px){.home-hero{grid-template-columns:1fr}.hero-visual{min-height:250px;order:-1}.service-grid{grid-template-columns:1fr 1fr}.home-projects{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.home-contact{grid-template-columns:1fr}}
+@media(max-width:500px){.home-section{padding:20px;border-radius:23px}.service-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:6px}.hero-visual{min-height:220px}}
+
+</style>
+</head>
+<body>
+<div class="site" id="site">
+  <header class="topbar">
+    <a href="#" class="brand" data-page="home">SUBHASH<span>.</span></a>
+    <button class="menu-trigger" id="openMenu" aria-label="Open side navigation"><span class="menu-lines"></span></button>
+  </header>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="side-nav" id="sideNav" aria-label="Site navigation">
+    <div class="side-top">
+      <span class="side-title">Navigation</span>
+      <button class="close" id="closeMenu" aria-label="Close navigation">✕</button>
+    </div>
+
+    <button class="nav-item active" data-page="home"><span class="nav-icon">⌂</span>Home</button>
+    <button class="nav-item" data-page="about"><span class="nav-icon">○</span>About me</button>
+    <button class="nav-item" data-page="experience"><span class="nav-icon">◇</span>My experience</button>
+    <button class="nav-item" data-page="projects"><span class="nav-icon">▱</span>My projects</button>
+    <button class="nav-item" data-page="contact"><span class="nav-icon">✆</span>Contact me</button>
+
+    <div class="side-bottom">
+      
+    </div>
+  </aside>
+
+  <main class="pages">
+    <section class="page active" id="home">
+      <div class="page-inner">
+        <div class="home-stack">
+          <div class="home-hero">
+            <div class="hero-copy">
+              <div class="eyebrow">Digital Manager • Builder</div>
+              <h1>I build a better <span>digital presence.</span></h1>
+              <p class="lead">I'm Subhash. I design websites, build brands, explore AI tools and create digital systems that turn ideas into useful experiences.</p>
+              <div class="actions">
+                <button class="btn primary" data-page="projects">Explore my work →</button>
+                <button class="btn" data-page="contact">Let's work together</button>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80" alt="Modern digital workspace">
+              <div class="hero-badge"><b>SUBHASH<span style="color:var(--green)">.</span></b><p>Build • Improve • Automate</p></div>
+            </div>
+          </div>
+
+          <div class="home-section">
+            <div class="section-head"><div><div class="eyebrow">01 — About me</div><h3>Learning by <span>building.</span></h3></div><p>I learn by creating real projects instead of only studying theory.</p></div>
+            <div class="about-layout">
+              <div class="card"><h3>Who I am</h3><p>I’m building my path as a digital manager and builder, combining websites, design, AI tools, branding and digital systems.</p></div>
+              <div class="card"><h3>My approach</h3><div class="features"><div class="feature"><div class="icon">01</div><div><b>Build</b><small>Turn ideas into working digital products.</small></div></div><div class="feature"><div class="icon">02</div><div><b>Improve</b><small>Make online experiences clearer and stronger.</small></div></div><div class="feature"><div class="icon">03</div><div><b>Automate</b><small>Explore AI and systems for repetitive work.</small></div></div></div></div>
+            </div>
+          </div>
+
+          <div class="home-section">
+            <div class="section-head"><div><div class="eyebrow">02 — What I do</div><h3>Digital work, <span>from idea to launch.</span></h3></div><p>These are the areas I’m developing for future client work.</p></div>
+            <div class="service-grid">
+              <div class="service-card"><div class="big">01</div><h4>Websites</h4><p>Modern, responsive landing pages and business websites.</p></div>
+              <div class="service-card"><div class="big">02</div><h4>Digital Presence</h4><p>Social profiles, content direction and online presentation.</p></div>
+              <div class="service-card"><div class="big">03</div><h4>AI & Automation</h4><p>AI-assisted workflows and practical automation ideas.</p></div>
+              <div class="service-card"><div class="big">04</div><h4>Brand Building</h4><p>Visual identity, positioning and digital brand systems.</p></div>
+            </div>
+          </div>
+
+          <div class="home-section">
+            <div class="section-head"><div><div class="eyebrow">03 — My experience</div><h3>Built through <span>real projects.</span></h3></div><button class="btn" data-page="experience">Full experience →</button></div>
+            <div class="stats"><div class="stat"><b>03+</b><span>main projects</span></div><div class="stat"><b>Web</b><span>design & development</span></div><div class="stat"><b>AI</b><span>tools & automation</span></div><div class="stat"><b>Brand</b><span>building & strategy</span></div></div>
+          </div>
+
+          <div class="home-section">
+            <div class="section-head"><div><div class="eyebrow">04 — My projects</div><h3>Things I've <span>built.</span></h3></div><button class="btn" data-page="projects">See all projects →</button></div>
+            <div class="home-projects">
+              <article class="home-project"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=80" alt="Gaming setup representing Fantovex"><div class="home-project-body"><h4>Fantovex</h4><p>Esports brand, community and digital presence.</p><a href="https://fantovexhq.github.io/FantovexHQ-/" target="_blank">View site ↗</a></div></article>
+              <article class="home-project"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80" alt="Technology product representing VOLTRIX"><div class="home-project-body"><h4>VOLTRIX</h4><p>Gaming and tech e-commerce concept.</p><a href="#" data-page="projects">View project →</a></div></article>
+              <article class="home-project"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Laptop representing Nexora AI"><div class="home-project-body"><h4>Nexora AI</h4><p>Text assistant and automation concept.</p><a href="#" data-page="projects">View project →</a></div></article>
+            </div>
+          </div>
+
+          <div class="home-section">
+            <div class="section-head"><div><div class="eyebrow">05 — Contact</div><h3>Let's build <span>something.</span></h3></div><p>Projects, collaborations or digital work — connect with me.</p></div>
+            <div class="home-contact"><div class="social-row"><a class="social-pill" href="mailto:YOUR_EMAIL@gmail.com">✉ Gmail</a><a class="social-pill" href="https://instagram.com/YOUR_USERNAME" target="_blank">◎ Instagram</a><a class="social-pill" href="https://youtube.com/@YOUR_CHANNEL" target="_blank">▶ YouTube</a><a class="social-pill" href="tel:+91XXXXXXXXXX">☎ Phone</a></div><button class="btn primary" data-page="contact">Contact me →</button></div>
+          </div>
+
+          <div class="home-section" style="text-align:center;padding:42px 24px"><div class="eyebrow">Build. Improve. Automate.</div><h2>Your next <span>digital project</span> could start here.</h2><p class="lead" style="margin:18px auto 22px">I’m building, learning and creating — one project at a time.</p><button class="btn primary" data-page="contact">Let's work together →</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="about">
+      <div class="page-inner">
+        <div class="eyebrow">01 — About me</div>
+        <h2>Learning by <span>building.</span></h2>
+        <p class="lead">I combine design, websites, AI tools and brand thinking. My goal is to understand real problems, build useful solutions and keep improving.</p>
+        <div class="about-layout">
+          <div class="card">
+            <h3>My approach</h3>
+            <p>Every project is a practical learning experience. I prefer building real things over only studying theory.</p>
+            <div class="features">
+              <div class="feature"><div class="icon">01</div><div><b>Build</b><small>Turn an idea into a working digital product.</small></div></div>
+              <div class="feature"><div class="icon">02</div><div><b>Improve</b><small>Make an existing online presence clearer and stronger.</small></div></div>
+              <div class="feature"><div class="icon">03</div><div><b>Automate</b><small>Explore AI and systems that reduce repetitive work.</small></div></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>What I'm learning</h3>
+            <div class="features">
+              <div class="feature"><div class="icon">W</div><div><b>Web design & development</b><small>Responsive interfaces and practical websites.</small></div></div>
+              <div class="feature"><div class="icon">A</div><div><b>AI & automation</b><small>AI-assisted workflows and automation concepts.</small></div></div>
+              <div class="feature"><div class="icon">B</div><div><b>Digital management</b><small>Helping businesses organise and improve their online presence.</small></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="experience">
+      <div class="page-inner">
+        <div class="eyebrow">02 — My experience</div>
+        <h2>Built through <span>real projects.</span></h2>
+        <p class="lead">A simple record of the projects and skills that shaped my current direction.</p>
+        <div class="timeline">
+          <div class="item"><div class="date">Current</div><h3>Digital Management direction</h3><p>Building skills around websites, social media, AI tools, branding, communication and digital systems.</p></div>
+          <div class="item"><div class="date">Project</div><h3>Fantovex — esports brand</h3><p>Created the brand identity, social presence, website concepts and community-building direction.</p></div>
+          <div class="item"><div class="date">Project</div><h3>Nexora AI — assistant concept</h3><p>Explored a text-based assistant concept and how an interface can connect commands with actions.</p></div>
+          <div class="item"><div class="date">Project</div><h3>VOLTRIX — store concept</h3><p>Designed a mobile-first gaming and tech shopping experience with a clean dark visual system.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="projects">
+      <div class="page-inner">
+        <div class="eyebrow">03 — My projects</div>
+        <h2>Things I've <span>built.</span></h2>
+        <p class="lead">These are reference projects. More experiments will be added as they become presentable.</p>
+        <div class="project-grid">
+          <article class="project">
+            <div class="cover"><strong>FANTOVEX<span style="color:var(--green)">.</span></strong></div>
+            <div class="project-body"><h3>Fantovex</h3><p>Esports brand, community and digital presence.</p><div class="chips"><span class="chip">Brand</span><span class="chip">Web</span><span class="chip">Community</span></div><a href="https://fantovexhq.github.io/FantovexHQ-/" target="_blank">View site ↗</a></div>
+          </article>
+          <article class="project">
+            <div class="cover"><strong>VOLTRIX<span style="color:var(--green)">.</span></strong></div>
+            <div class="project-body"><h3>VOLTRIX</h3><p>Gaming and tech e-commerce concept.</p><div class="chips"><span class="chip">E-commerce</span><span class="chip">UI</span></div><a href="#">View project</a></div>
+          </article>
+          <article class="project">
+            <div class="cover"><strong>NEXORA <span style="color:var(--green)">AI.</span></strong></div>
+            <div class="project-body"><h3>Nexora AI</h3><p>Text assistant and automation concept.</p><div class="chips"><span class="chip">AI</span><span class="chip">Automation</span></div><a href="https://nexoraai-black.vercel.app/">View project</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="contact">
+      <div class="page-inner">
+        <div class="eyebrow">04 — Contact me</div>
+        <h2>Let's build <span>something.</span></h2>
+        <p class="lead">For projects, collaborations or digital work, contact me through any of these channels.</p>
+        <div class="contact-layout">
+          <div class="card">
+            <h3>Direct contact</h3>
+            <div class="contact-list">
+              <!-- Replace the placeholder values below with your real details. -->
+              <a class="contact-link" href="preamer872@gmail.com"><span>✉️ <b>Email</b><small>preamer872@gmail.com</small></span><b>Open ↗</b></a>
+              <a class="contact-link" href="tel:+919241483349"><span>☎️ <b>Phone</b><small>+91 9241483449</small></span><b>Call ↗</b></a>
+              <a class="contact-link" href="https://www.instagram.com/subhash.digitalhq?stkn=cTNqODVobzg5ODJ4" target="_blank"><span>◎ <b>Instagram</b><small>Subhadh.digitalhq</small></span><b>Profile ↗</b></a>
+              <a class="contact-link" href="https://www.youtube.com/@fantovexHQ" target="_blank"><span>▶ <b>YouTube</b><small>Fantovex Esports</small></span><b>Channel ↗</b></a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>What I can help with</h3>
+            <div class="features">
+              <div class="feature"><div class="icon">W</div><div><b>Website</b><small>Landing pages and simple business websites.</small></div></div>
+              <div class="feature"><div class="icon">S</div><div><b>Digital presence</b><small>Online profile and content direction.</small></div></div>
+              <div class="feature"><div class="icon">A</div><div><b>AI & systems</b><small>AI-assisted workflows and experiments.</small></div></div>
+            </div>
+            <p class="note">The email, phone, Instagram and YouTube above are placeholders until you give me your real contact details.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="dots" id="dots"></div>
+  
+</div>
+
+<script>
+const pages = ["home","about","experience","projects","contact"];
+const nav = document.getElementById("sideNav");
+const overlay = document.getElementById("overlay");
+const openMenu = document.getElementById("openMenu");
+const closeMenu = document.getElementById("closeMenu");
+const dots = document.getElementById("dots");
+let current = "home";
+
+pages.forEach((p,i)=>{
+  const d=document.createElement("span");
+  d.className="dot"+(i===0?" active":"");
+  dots.appendChild(d);
+});
+
+function setPage(name){
+  if(!pages.includes(name)) name="home";
+  current=name;
+  document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===name));
+  document.querySelectorAll(".nav-item").forEach(n=>n.classList.toggle("active",n.dataset.page===name));
+  [...dots.children].forEach((d,i)=>d.classList.toggle("active",pages[i]===name));
+  closeNav();
+  history.replaceState(null,"","#"+name);
+}
+function openNav(){nav.classList.add("open");overlay.classList.add("open");openMenu.classList.add("active")}
+function closeNav(){nav.classList.remove("open");overlay.classList.remove("open");openMenu.classList.remove("active")}
+
+openMenu.addEventListener("click",()=>nav.classList.contains("open")?closeNav():openNav());
+closeMenu.addEventListener("click",closeNav);
+overlay.addEventListener("click",closeNav);
+
+document.querySelectorAll("[data-page]").forEach(el=>{
+  el.addEventListener("click",e=>{
+    const name=el.dataset.page;
+    if(name){e.preventDefault();setPage(name)}
+  });
+});
+
+/* Open by pulling/swiping from the right edge. */
+let startX=0,startY=0,tracking=false;
+document.addEventListener("touchstart",e=>{
+  if(e.touches.length!==1)return;
+  startX=e.touches[0].clientX; startY=e.touches[0].clientY;
+  tracking=startX>window.innerWidth-42;
+},{passive:true});
+
+document.addEventListener("touchmove",e=>{
+  if(!tracking||e.touches.length!==1)return;
+  const dx=e.touches[0].clientX-startX;
+  const dy=Math.abs(e.touches[0].clientY-startY);
+  if(dx<0 && Math.abs(dx)>45 && dy<100){
+    tracking=false;
+    if(!nav.classList.contains("open"))openNav();
+  }
+},{passive:true});
+
+/* Swipe the open panel back to the right to close it. */
+let navStartX=0;
+nav.addEventListener("touchstart",e=>{
+  if(e.touches.length===1)navStartX=e.touches[0].clientX;
+},{passive:true});
+nav.addEventListener("touchend",e=>{
+  if(e.changedTouches.length===1 && e.changedTouches[0].clientX-navStartX>70)closeNav();
+},{passive:true});
+
+/* Escape key + browser hash support. */
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeNav()});
+const initial=location.hash.slice(1);
+if(pages.includes(initial))setPage(initial);
+</script>
+</body>
+</html>
