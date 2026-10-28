@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CitySeller Cakes – Deoghar ke favourite cakes</title>
+<meta name="description" content="CitySeller Cakes, Awantika Gali, Deoghar. Deoghar ke favourite cakes.">
+<style>
+:root{--w:#FFFFFF;--iv:#FFFDF8;--gold:#B89450;--lg:#E8D7AE;--tx:#29251F;--tx2:#77716A;--bd:#EEE7DA;--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--tx);background:var(--w);line-height:1.55;overflow-x:hidden}
+body.lock{overflow:hidden}
+img{max-width:100%;display:block}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.2}
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+/* header */
+header.top{position:sticky;top:0;z-index:30;background:var(--w);border-bottom:1px solid var(--bd);padding-top:env(safe-area-inset-top,0)}
+header.top:before{content:"";display:block;height:3px;background:var(--gold)}
+.hbar{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;text-align:left}
+.logo{width:34px;height:34px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;font-family:var(--serif);color:var(--gold);font-size:15px}
+.bname{font-family:var(--serif);font-size:18px;letter-spacing:.02em}
+.hr{display:flex;gap:6px;align-items:center}
+.ib{position:relative;width:44px;height:44px;border:1px solid var(--bd);background:var(--w);border-radius:2px;cursor:pointer;display:grid;place-items:center}
+.ib svg{width:22px;height:22px;stroke:var(--tx);fill:none;stroke-width:1.6}
+.badge{position:absolute;top:-6px;right:-6px;min-width:18px;height:18px;border-radius:9px;background:var(--gold);color:#fff;font-size:11px;display:grid;place-items:center;padding:0 4px}
+.badge:empty{display:none}
+/* drawer */
+.backdrop{position:fixed;inset:0;background:rgba(41,37,31,.35);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;z-index:50}
+.backdrop.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(86vw,340px);max-width:100vw;background:var(--iv);border-left:1px solid var(--gold);z-index:60;transform:translateX(100%);visibility:hidden;transition:transform .28s ease,visibility .28s;display:flex;flex-direction:column;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+.drawer.on{transform:none;visibility:visible}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--lg)}
+.dnav{flex:1;overflow-y:auto;padding:8px 0}
+.dnav button{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--bd);padding:15px 22px;font-family:var(--serif);font-size:18px;cursor:pointer}
+.dnav button.act{color:var(--gold)}
+.lang{display:flex;gap:0;margin:16px 22px}
+.lang button{flex:1;border:1px solid var(--gold);background:var(--w);padding:9px;cursor:pointer;font-size:14px}
+.lang button.on{background:var(--gold);color:#fff}
+.dfoot{border-top:1px solid var(--lg);padding:14px 22px;font-size:13px;color:var(--tx2)}
+.dfoot a{color:var(--gold)}
+/* pages */
+.page{display:none}
+.page.on{display:block;animation:fi .25s ease}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.sec{padding:44px 0}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.divider{width:56px;height:2px;background:var(--gold);margin:14px 0}
+.center{text-align:center}.center .divider{margin:14px auto}
+h2{font-size:28px}
+.sub{color:var(--tx2);margin-top:6px}
+.btn{display:inline-block;border:1px solid var(--gold);background:var(--gold);color:#fff;padding:12px 22px;cursor:pointer;text-decoration:none;font-size:14px;letter-spacing:.04em;border-radius:2px;min-height:44px}
+.btn.o{background:var(--w);color:var(--gold)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+/* hero */
+.hero{background:var(--iv);display:grid;gap:0}
+.hero .txt{padding:36px 18px}
+.hero h1{font-size:40px}
+.hero .tag{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--gold);margin-top:8px}
+.rate{display:inline-block;border:1px solid var(--lg);background:var(--w);padding:6px 12px;font-size:13px;margin-top:16px}
+.hero .img{aspect-ratio:4/3}
+.ph{width:100%;height:100%;object-fit:cover;background:var(--iv)}
+@media(min-width:800px){.hero{grid-template-columns:1fr 1fr;align-items:stretch}.hero .txt{padding:70px 40px 70px max(18px,calc((100vw - 1100px)/2))}.hero h1{font-size:56px}.hero .img{aspect-ratio:auto;min-height:420px}}
+/* marquee */
+.marq{border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);background:var(--iv);overflow:hidden;white-space:nowrap}
+.mt{display:inline-flex;animation:mq 28s linear infinite;will-change:transform}
+.mt span{padding:9px 0;font-size:12px;letter-spacing:.18em;color:var(--gold);font-family:var(--serif)}
+.mt span:after{content:"  ◆  ";font-size:8px;padding:0 10px}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.mt{animation:none}.page.on{animation:none}.drawer,.backdrop{transition:none}}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:22px}
+.gal div{aspect-ratio:1/1;overflow:hidden;border:1px solid var(--bd)}
+.gal div:first-child{grid-column:span 2;aspect-ratio:2/1}
+.gal img{width:100%;height:100%;object-fit:cover}
+@media(min-width:800px){.gal{grid-template-columns:repeat(4,1fr)}.gal div:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}.gal img{transition:transform .4s}.gal div:hover img{transform:scale(1.04)}}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
+@media(max-width:340px){.grid{grid-template-columns:1fr}}
+@media(min-width:800px){.grid{grid-template-columns:repeat(4,1fr);gap:18px}}
+.card{border:1px solid var(--bd);background:var(--w);display:flex;flex-direction:column}
+.card .im{aspect-ratio:1/1;overflow:hidden;background:var(--iv)}
+.card .im img{width:100%;height:100%;object-fit:cover}
+.card .b{padding:12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{font-size:16px}
+.card p{font-size:13px;color:var(--tx2)}
+.price{color:var(--gold);font-family:var(--serif);font-size:17px;margin-top:auto}
+.row{display:flex;gap:8px;align-items:center}
+.qty{display:inline-flex;border:1px solid var(--bd)}
+.qty button{width:34px;height:36px;background:var(--iv);border:0;cursor:pointer;font-size:18px}
+.qty span{min-width:30px;text-align:center;line-height:36px;font-size:14px}
+.card .btn{padding:8px 10px;font-size:13px;min-height:38px;flex:1;text-align:center}
+.cats{display:grid;gap:12px;grid-template-columns:1fr;margin-top:22px}
+@media(min-width:700px){.cats{grid-template-columns:repeat(3,1fr)}}
+.cat{border:1px solid var(--lg);background:var(--iv);padding:26px 18px;text-align:center;cursor:pointer;font-family:var(--serif);font-size:20px;border-top:3px solid var(--gold)}
+.cat small{display:block;font-family:var(--sans);font-size:13px;color:var(--tx2);margin-top:4px}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:4px 0;margin-top:18px}
+.filters button{white-space:nowrap;border:1px solid var(--bd);background:var(--w);padding:9px 16px;cursor:pointer;font-size:14px;min-height:40px}
+.filters button.on{background:var(--gold);color:#fff;border-color:var(--gold)}
+.note{background:var(--iv);border:1px dashed var(--lg);padding:10px 14px;font-size:13px;color:var(--tx2);margin-top:16px}
+.pghead{background:var(--iv);border-bottom:1px solid var(--bd);padding:34px 0 24px}
+/* forms */
+.form{background:var(--iv);border:1px solid var(--lg);padding:20px;display:grid;gap:14px;margin-top:20px}
+.f label{display:block;font-size:13px;margin-bottom:4px;color:var(--tx2)}
+.f input,.f select,.f textarea{width:100%;border:1px solid var(--bd);background:var(--w);padding:11px;border-radius:2px;min-height:44px}
+.f textarea{min-height:80px;resize:vertical}
+.f.bad input,.f.bad select,.f.bad textarea{border-color:#b3472f}
+.err{color:#b3472f;font-size:12px;margin-top:3px;min-height:0}
+.two{display:grid;gap:14px}
+@media(min-width:700px){.two{grid-template-columns:1fr 1fr}}
+/* cart */
+.ci{display:grid;grid-template-columns:64px 1fr;gap:12px;border-bottom:1px solid var(--bd);padding:14px 0}
+.ci img{width:64px;height:64px;object-fit:cover}
+.ci .r{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-top:6px}
+.rm{background:none;border:0;color:#b3472f;cursor:pointer;font-size:13px;text-decoration:underline;min-height:36px}
+.tot{display:flex;justify-content:space-between;font-family:var(--serif);font-size:22px;padding:16px 0;border-top:2px solid var(--gold)}
+.cartwrap{display:grid;gap:24px}
+@media(min-width:800px){.cartwrap{grid-template-columns:1.2fr 1fr}}
+.empty{text-align:center;padding:30px 0;color:var(--tx2)}
+/* contact */
+.cg{display:grid;gap:22px;margin-top:20px}
+@media(min-width:800px){.cg{grid-template-columns:1fr 1.3fr}}
+.info{border:1px solid var(--lg);background:var(--iv);padding:20px;display:grid;gap:10px;align-content:start}
+.map{border:1px solid var(--lg);aspect-ratio:4/3;background:var(--iv);display:grid;place-items:center;text-align:center;padding:14px;color:var(--tx2)}
+.map iframe{width:100%;height:100%;border:0}
+/* footer */
+.foot{border-top:2px solid var(--gold);background:var(--iv);margin-top:30px;padding:28px 0 90px;font-size:14px}
+.fg{display:grid;gap:18px}
+@media(min-width:800px){.fg{grid-template-columns:1.3fr 1fr 1fr}}
+.foot h4{font-family:var(--serif);font-weight:500;font-size:16px;margin-bottom:6px}
+.foot nav{display:flex;flex-direction:column;align-items:flex-start}
+.foot nav button,.foot nav a{background:none;border:0;padding:5px 0;cursor:pointer;text-align:left;color:var(--tx2);text-decoration:none;font-size:14px}
+.fx{margin-top:20px;padding-top:14px;border-top:1px solid var(--lg);font-size:13px;color:var(--tx2);display:flex;flex-wrap:wrap;gap:6px 16px}
+.fx a{color:var(--gold)}
+/* fab + toast */
+.fab{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:40;width:54px;height:54px;border-radius:50%;background:#fff;border:1px solid var(--lg);box-shadow:0 2px 10px rgba(41,37,31,.18);display:grid;place-items:center;cursor:pointer;transition:transform .2s}
+.fab svg{width:30px;height:30px;fill:#25D366}
+@media(hover:hover){.fab:hover{transform:scale(1.06)}}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--tx);color:#fff;padding:10px 16px;font-size:14px;z-index:70;max-width:88vw;text-align:center;display:none;border-radius:2px}
+.toast.on{display:block}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap hbar">
+<button class="brand" data-go="home" aria-label="CitySeller Cakes"><span class="logo">C</span><span class="bname">CitySeller Cakes</span></button>
+<div class="hr">
+<button class="ib" data-go="cart" id="cartBtn" data-aria="cart"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h10.2L20 7H6.2"/><circle cx="9" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></svg><span class="badge" id="cartCount"></span></button>
+<button class="ib" id="menuBtn" aria-expanded="false" aria-controls="drawer" data-aria="menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></div></header>
+
+<div class="backdrop" id="backdrop"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu" tabindex="-1">
+<div class="dh"><span class="brand"><span class="logo">C</span><span class="bname">CitySeller Cakes</span></span>
+<button class="ib" id="closeBtn" data-aria="close"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+<div class="dnav">
+<button data-go="home" data-i="nHome"></button><button data-go="menu" data-i="nMenu"></button><button data-go="custom-cakes" data-i="nCustom"></button><button data-go="cart" data-i="nCart"></button><button data-go="contact" data-i="nContact"></button>
+<div class="lang"><button data-lang="en">EN</button><button data-lang="hi">हिंदी</button></div></div>
+<div class="dfoot"><div data-i="dev"></div><div><a href="https://fantovexhq.github.io/" target="_blank" rel="noopener noreferrer">fantovexhq.github.io</a></div><div id="dfx"></div></div>
+</aside>
+
+<main id="main">
+<!-- HOME -->
+<section class="page" id="p-home" data-page="home" aria-label="Home">
+<div class="hero"><div class="txt"><div class="eyebrow">Awantika Gali · Deoghar</div><h1>CitySeller Cakes</h1><p class="tag" data-i="tagline"></p><div class="divider"></div><p class="sub" data-i="heroSub"></p><div class="rate">★ 4.8 | 1,600+ <span data-i="gReviews"></span></div>
+<div class="btns"><button class="btn" data-go="menu" data-i="explore"></button><button class="btn o" data-act="wa" data-i="orderWa"></button><button class="btn o" data-act="call" data-i="callNow"></button></div></div>
+<div class="img"><img class="ph" data-img="0" alt="Celebration cake" width="800" height="600"></div></div>
+<div class="marq" aria-hidden="true"><div class="mt" id="mq"></div></div>
+<div class="wrap sec"><div class="center"><div class="eyebrow" data-i="gal0"></div><h2 data-i="galT"></h2><div class="divider"></div><p class="sub" data-i="galS"></p></div>
+<div class="gal" id="gal"></div><div class="center btns" style="justify-content:center"><button class="btn o" data-go="menu" data-i="exploreOur"></button></div></div>
+<div class="wrap" style="padding-bottom:20px"><h2 data-i="featured"></h2><div class="divider"></div><div class="grid" id="featGrid"></div></div>
+<div class="wrap sec"><h2 data-i="cats"></h2><div class="divider"></div><div class="cats">
+<div class="cat" role="button" tabindex="0" data-cat="cakes"><span data-i="fCakes"></span></div>
+<div class="cat" role="button" tabindex="0" data-cat="pastries"><span data-i="fPast"></span></div>
+<div class="cat" role="button" tabindex="0" data-cat="custom"><span data-i="fCust"></span></div></div></div>
+<footer class="foot" data-footer></footer>
+</section>
+
+<!-- MENU -->
+<section class="page" id="p-menu" data-page="menu" aria-label="Menu">
+<div class="pghead"><div class="wrap"><div class="eyebrow">CitySeller Cakes</div><h2 data-i="nMenu"></h2><div class="divider"></div></div></div>
+<div class="wrap"><div class="note" data-i="demo"></div><div class="filters" id="filters"></div><div class="grid" id="menuGrid"></div></div>
+<footer class="foot" data-footer></footer>
+</section>
+
+<!-- CUSTOM -->
+<section class="page" id="p-custom-cakes" data-page="custom-cakes" aria-label="Custom Cakes">
+<div class="pghead"><div class="wrap"><div class="eyebrow">CitySeller Cakes</div><h2 data-i="nCustom"></h2><div class="divider"></div><p class="sub" data-i="customSub"></p></div></div>
+<div class="wrap"><form class="form" id="customForm" novalidate>
+<div class="two"><div class="f"><label for="cName" data-i="name"></label><input id="cName" autocomplete="name"><div class="err"></div></div>
+<div class="f"><label for="cPhone" data-i="phone"></label><input id="cPhone" type="tel" inputmode="tel" autocomplete="tel"><div class="err"></div></div></div>
+<div class="two"><div class="f"><label for="cFlavour" data-i="flavour"></label><select id="cFlavour"></select><div class="err"></div></div>
+<div class="f"><label for="cWeight" data-i="weight"></label><select id="cWeight"></select><div class="err"></div></div></div>
+<div class="two"><div class="f"><label for="cShape" data-i="shape"></label><select id="cShape"></select><div class="err"></div></div>
+<div class="f"><label for="cDate" data-i="date"></label><input id="cDate" type="date"><div class="err"></div></div></div>
+<div class="f"><label for="cMsg" data-i="msg"></label><input id="cMsg" maxlength="60"></div>
+<div class="f"><label for="cMode" data-i="mode"></label><select id="cMode"><option value="pickup" data-i="pickup"></option><option value="delivery" data-i="delivery"></option></select></div>
+<div class="f"><label for="cNote" data-i="extra"></label><textarea id="cNote"></textarea></div>
+<button class="btn" type="submit" data-i="sendWa"></button><p class="sub" style="font-size:13px" data-i="noConfirm"></p></form></div>
+<footer class="foot" data-footer></footer>
+</section>
+
+<!-- CART -->
+<section class="page" id="p-cart" data-page="cart" aria-label="Cart">
+<div class="pghead"><div class="wrap"><div class="eyebrow">CitySeller Cakes</div><h2 data-i="nCart"></h2><div class="divider"></div></div></div>
+<div class="wrap" style="margin-top:20px"><div class="cartwrap"><div id="cartList"></div>
+<form class="form" id="checkForm" novalidate style="margin-top:0">
+<div class="f"><label for="kName" data-i="fullName"></label><input id="kName" autocomplete="name"><div class="err"></div></div>
+<div class="f"><label for="kPhone" data-i="phone"></label><input id="kPhone" type="tel" inputmode="tel" autocomplete="tel"><div class="err"></div></div>
+<div class="f"><label for="kAddr" data-i="address"></label><textarea id="kAddr" autocomplete="street-address"></textarea><div class="err"></div></div>
+<div class="f"><label for="kNote" data-i="extra"></label><textarea id="kNote"></textarea></div>
+<button class="btn" type="submit" data-i="placeWa"></button><p class="sub" style="font-size:13px" data-i="noConfirm"></p></form></div></div>
+<footer class="foot" data-footer></footer>
+</section>
+
+<!-- CONTACT -->
+<section class="page" id="p-contact" data-page="contact" aria-label="Contact">
+<div class="pghead"><div class="wrap"><div class="eyebrow">CitySeller Cakes</div><h2 data-i="nContact"></h2><div class="divider"></div></div></div>
+<div class="wrap"><div class="cg"><div class="info"><h3>CitySeller Cakes</h3><div id="cAddr"></div><div><strong data-i="hours"></strong><div id="cHours"></div></div>
+<div class="btns" style="margin-top:6px"><button class="btn" data-act="call" data-i="callNow"></button><button class="btn o" data-act="wa" data-i="waBtn"></button><a class="btn o" id="igBtn" target="_blank" rel="noopener noreferrer">Instagram</a><a class="btn o" id="dirBtn" target="_blank" rel="noopener noreferrer" data-i="directions"></a></div></div>
+<div class="map" id="mapBox"></div></div></div>
+<footer class="foot" data-footer></footer>
+</section>
+</main>
+
+<button class="fab" id="fab" data-act="wa" data-aria="fab"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.300 2.400 1.500.3.1.5.1.6-.1l.9-1.100c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.6-.1 1.300z"/></svg></button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ===== 1. CONFIGURATION ===== */
+const BUSINESS_CONFIG = {
+  name: "CitySeller Cakes",
+  address: "Awantika Gali, Deoghar, Jharkhand",
+  phone: "",            // e.g. "919XXXXXXXXX"
+  whatsapp: "",         // digits with country code, e.g. "919XXXXXXXXX"
+  instagram: "https://www.instagram.com/citysellercake/",
+  googleMapsEmbedUrl: "",       // paste verified Google Maps embed URL
+  googleMapsDirectionsUrl: "",  // paste verified directions URL
+  openingHours: "",
+  fantovexWebsite: "https://fantovexhq.github.io/",
+  fantovexContactUrl: ""        // supplied by Fantovex
+};
+const GALLERY_IMAGES = ["","","","","",""]; // paste real image URLs; empty = demo placeholder
+const CUSTOM_OPTIONS = { // edit when bakery confirms offerings
+  flavours: ["Chocolate","Vanilla","Butterscotch","Black Forest"],
+  weights: ["0.5 kg","1 kg","1.5 kg","2 kg"],
+  shapes: ["Round","Square","Heart","Custom design"]
+};
+/* ===== 2. MENU DATA (demo items – replace with verified menu) ===== */
+const MENU = [
+ {id:"d1",nameEn:"Demo Chocolate Cake",nameHi:"डेमो चॉकलेट केक",descriptionEn:"Demonstration product",descriptionHi:"उदाहरण उत्पाद",category:"cakes",price:500,image:"",available:true},
+ {id:"d2",nameEn:"Demo Vanilla Cake",nameHi:"डेमो वनीला केक",descriptionEn:"Demonstration product",descriptionHi:"उदाहरण उत्पाद",category:"cakes",price:450,image:"",available:true},
+ {id:"d3",nameEn:"Demo Pastry",nameHi:"डेमो पेस्ट्री",descriptionEn:"Demonstration product",descriptionHi:"उदाहरण उत्पाद",category:"pastries",price:60,image:"",available:true},
+ {id:"d4",nameEn:"Demo Fruit Pastry",nameHi:"डेमो फ्रूट पेस्ट्री",descriptionEn:"Demonstration product",descriptionHi:"उदाहरण उत्पाद",category:"pastries",price:80,image:"",available:true},
+ {id:"d5",nameEn:"Demo Birthday Cake",nameHi:"डेमो बर्थडे केक",descriptionEn:"Demonstration product",descriptionHi:"उदाहरण उत्पाद",category:"custom",price:700,image:"",available:true},
+ {id:"d6",nameEn:"Demo Theme Cake",nameHi:"डेमो थीम केक",descriptionEn:"Demonstration product",descriptionHi:"उदाहरण उत्पाद",category:"custom",price:900,image:"",available:true}
+];
+const FEATURED_IDS = ["d1","d3","d5","d2"];
+/* ===== 10. TRANSLATIONS ===== */
+const I18N = {
+en:{nHome:"Home",nMenu:"Our Menu",nCustom:"Custom Cakes",nCart:"Cart & Checkout",nContact:"Contact & Location",dev:"Website designed & developed by Fantovex",
+tagline:"Deoghar ke favourite cakes",heroSub:"Har celebration ko banayein thoda aur special.",gReviews:"Google Reviews",explore:"Explore Menu",orderWa:"Order on WhatsApp",callNow:"Call Now",
+gal0:"Gallery",galT:"A Taste of Celebration",galS:"Beautiful cakes for your most special moments.",exploreOur:"Explore Our Menu",featured:"Featured",cats:"Our Categories",
+fCakes:"Cakes",fPast:"Pastries",fCust:"Custom & Birthday Cakes",all:"All",catCakes:"Cakes",catPast:"Pastries",catCust:"Custom & Birthday",demo:"Demonstration items and prices only. Not the verified CitySeller Cakes menu.",
+add:"Add to Cart",unavail:"Unavailable",customSub:"Tell us about your dream cake.",name:"Customer name",phone:"Contact number",flavour:"Cake flavour",weight:"Weight",shape:"Shape / design",date:"Required date",msg:"Message on cake",mode:"Pickup or delivery",pickup:"Pickup",delivery:"Delivery",extra:"Additional instructions",sendWa:"Send request on WhatsApp",
+noConfirm:"Your order is not confirmed until the bakery replies. You must send the WhatsApp message yourself.",fullName:"Full name",address:"Delivery address",placeWa:"Send order on WhatsApp",
+cartEmpty:"Your cart is empty.",browse:"Browse Menu",remove:"Remove",total:"Grand total",hours:"Opening hours",notSet:"To be updated",waBtn:"WhatsApp",directions:"Get Directions",
+mapFallback:"Map not available yet.",req:"This field is required",badPhone:"Enter a valid phone number",badDate:"Choose today or a later date",
+noWa:"WhatsApp number is not configured yet.",noCall:"Phone number is not configured yet.",added:"Added to cart",gen:"Hello CitySeller Cakes, I have an enquiry.",
+fLinks:"Pages",fConnect:"Connect",powered:"Powered by",fdev:"Website design & development by Fantovex",fxContact:"Contact Fantovex",
+cart:"Cart",menu:"Menu",close:"Close",fab:"Chat with CitySeller Cakes on WhatsApp"},
+hi:{nHome:"होम",nMenu:"हमारा मेन्यू",nCustom:"कस्टम केक",nCart:"कार्ट और चेकआउट",nContact:"संपर्क और पता",dev:"वेबसाइट डिज़ाइन व डेवलपमेंट: Fantovex",
+tagline:"देवघर के फेवरेट केक",heroSub:"हर celebration को बनाएं थोड़ा और खास।",gReviews:"Google रिव्यू",explore:"मेन्यू देखें",orderWa:"WhatsApp पर ऑर्डर करें",callNow:"अभी कॉल करें",
+gal0:"गैलरी",galT:"जश्न का स्वाद",galS:"आपके सबसे खास पलों के लिए सुंदर केक।",exploreOur:"हमारा मेन्यू देखें",featured:"खास पसंद",cats:"हमारी श्रेणियां",
+fCakes:"केक",fPast:"पेस्ट्री",fCust:"कस्टम और बर्थडे केक",all:"सभी",catCakes:"केक",catPast:"पेस्ट्री",catCust:"कस्टम और बर्थडे",demo:"केवल डेमो आइटम और कीमतें। यह CitySeller Cakes का सत्यापित मेन्यू नहीं है।",
+add:"कार्ट में जोड़ें",unavail:"उपलब्ध नहीं",customSub:"अपने सपनों के केक के बारे में बताइए।",name:"ग्राहक का नाम",phone:"संपर्क नंबर",flavour:"केक का फ्लेवर",weight:"वज़न",shape:"आकार / डिज़ाइन",date:"आवश्यक तारीख",msg:"केक पर संदेश",mode:"पिकअप या डिलीवरी",pickup:"पिकअप",delivery:"डिलीवरी",extra:"अतिरिक्त निर्देश",sendWa:"WhatsApp पर अनुरोध भेजें",
+noConfirm:"बेकरी के जवाब देने तक आपका ऑर्डर कन्फर्म नहीं है। WhatsApp संदेश आपको खुद भेजना होगा।",fullName:"पूरा नाम",address:"डिलीवरी का पता",placeWa:"WhatsApp पर ऑर्डर भेजें",
+cartEmpty:"आपका कार्ट खाली है।",browse:"मेन्यू देखें",remove:"हटाएं",total:"कुल योग",hours:"खुलने का समय",notSet:"जल्द अपडेट होगा",waBtn:"WhatsApp",directions:"रास्ता देखें",
+mapFallback:"मैप अभी उपलब्ध नहीं है।",req:"यह जानकारी ज़रूरी है",badPhone:"सही फ़ोन नंबर लिखें",badDate:"आज या उसके बाद की तारीख चुनें",
+noWa:"WhatsApp नंबर अभी सेट नहीं है।",noCall:"फ़ोन नंबर अभी सेट नहीं है।",added:"कार्ट में जोड़ा गया",gen:"नमस्ते CitySeller Cakes, मुझे एक जानकारी चाहिए।",
+fLinks:"पेज",fConnect:"संपर्क",powered:"Powered by",fdev:"वेबसाइट डिज़ाइन व डेवलपमेंट: Fantovex",fxContact:"Fantovex से संपर्क करें",
+cart:"कार्ट",menu:"मेन्यू",close:"बंद करें",fab:"WhatsApp पर CitySeller Cakes से चैट करें"}
+};
+/* ===== 3. STATE ===== */
+const PAGES = ["home","menu","custom-cakes","cart","contact"];
+const state = {lang:"en",cat:"all",cart:{},cur:"home",q:{}};
+const $ = (s,r=document)=>r.querySelector(s), $$ = (s,r=document)=>[...r.querySelectorAll(s)];
+const t = k => (I18N[state.lang][k]!==undefined?I18N[state.lang][k]:I18N.en[k])||k;
+const esc = s => String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const rupee = n => "₹"+n.toLocaleString("en-IN");
+function store(op,k,v){try{return op==="get"?localStorage.getItem(k):localStorage.setItem(k,v)}catch(e){return null}}
+function ph(label){const s='<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><rect width="800" height="600" fill="#FFFDF8"/><rect x="20" y="20" width="760" height="560" fill="none" stroke="#E8D7AE" stroke-width="2"/><text x="400" y="290" font-family="Georgia,serif" font-size="80" fill="#B89450" text-anchor="middle">🎂</text><text x="400" y="360" font-family="Georgia,serif" font-size="26" fill="#B89450" text-anchor="middle">'+label+'</text></svg>';return "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(s)}
+function imgTag(src,alt,lazy,w,h,label){const p=ph(label||"Demo image");return '<img src="'+esc(src||p)+'" alt="'+esc(alt)+'" width="'+w+'" height="'+h+'"'+(lazy?' loading="lazy"':'')+' onerror="this.onerror=null;this.src=\''+p+'\'">'}
+function toast(m){const e=$("#toast");e.textContent=m;e.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove("on"),2600)}
+const validNum = n => /^\d{10,15}$/.test(String(n||"").replace(/\D/g,""));
+const digits = n => String(n||"").replace(/\D/g,"");
+const pname = p => state.lang==="hi"?p.nameHi:p.nameEn;
+/* ===== 4. NAVIGATION ===== */
+function go(page,opts){if(!PAGES.includes(page))page="home";if(location.hash.slice(1)!==page){location.hash=page}else{show(page)}}
+function show(page){
+  if(!PAGES.includes(page))page="home";
+  state.cur=page;
+  $$(".page").forEach(p=>p.classList.toggle("on",p.dataset.page===page));
+  $$(".dnav [data-go]").forEach(b=>b.classList.toggle("act",b.dataset.go===page));
+  window.scrollTo(0,0);
+  if(page==="menu")renderMenu(); if(page==="cart")renderCart();
+  document.title=(page==="home"?"":t({"menu":"nMenu","custom-cakes":"nCustom","cart":"nCart","contact":"nContact"}[page])+" – ")+"CitySeller Cakes";
+}
+window.addEventListener("hashchange",()=>{closeDrawer(true);show(location.hash.slice(1))});
+/* ===== 5. DRAWER ===== */
+let lastFocus=null;
+function openDrawer(){lastFocus=document.activeElement;$("#drawer").classList.add("on");$("#backdrop").classList.add("on");document.body.classList.add("lock");$("#menuBtn").setAttribute("aria-expanded","true");setTimeout(()=>$("#closeBtn").focus(),50)}
+function closeDrawer(skipFocus){if(!$("#drawer").classList.contains("on"))return;$("#drawer").classList.remove("on");$("#backdrop").classList.remove("on");document.body.classList.remove("lock");$("#menuBtn").setAttribute("aria-expanded","false");if(!skipFocus&&lastFocus)lastFocus.focus()}
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape")closeDrawer();
+  if(e.key==="Tab"&&$("#drawer").classList.contains("on")){
+    const f=$$("#drawer button, #drawer a").filter(x=>x.offsetParent!==null);if(!f.length)return;
+    const a=f[0],z=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}
+  }
+  if((e.key==="Enter"||e.key===" ")&&e.target.dataset&&e.target.dataset.cat){e.preventDefault();pickCat(e.target.dataset.cat)}
+});
+/* ===== 6. PRODUCT RENDERING ===== */
+function cardHTML(p,withQty){
+  const q=state.q[p.id]||1;
+  return '<article class="card"><div class="im">'+imgTag(p.image,pname(p),true,400,400,"Demo")+'</div><div class="b"><h3>'+esc(pname(p))+'</h3>'
+  +(withQty?'<p>'+esc(state.lang==="hi"?p.descriptionHi:p.descriptionEn)+'</p>':'')
+  +'<div class="price">'+rupee(p.price)+'</div>'
+  +(withQty?'<div class="qty" data-qtybox="'+p.id+'"><button data-act="qminus" data-id="'+p.id+'" aria-label="−">−</button><span>'+q+'</span><button data-act="qplus" data-id="'+p.id+'" aria-label="+">+</button></div>':'')
+  +(p.available?'<button class="btn" data-act="add" data-id="'+p.id+'" data-wq="'+(withQty?1:0)+'">'+t("add")+'</button>':'<button class="btn o" disabled>'+t("unavail")+'</button>')
+  +'</div></article>';
+}
+function renderFeatured(){$("#featGrid").innerHTML=FEATURED_IDS.map(id=>MENU.find(p=>p.id===id)).filter(Boolean).map(p=>cardHTML(p,false)).join("")}
+function renderMenu(){
+  const L={all:"all",cakes:"catCakes",pastries:"catPast",custom:"catCust"};
+  $("#filters").innerHTML=Object.keys(L).map(c=>'<button data-filter="'+c+'" class="'+(state.cat===c?"on":"")+'">'+t(L[c])+'</button>').join("");
+  $("#menuGrid").innerHTML=MENU.filter(p=>state.cat==="all"||p.category===state.cat).map(p=>cardHTML(p,true)).join("");
+}
+function renderGallery(){
+  $("#gal").innerHTML=GALLERY_IMAGES.map((u,i)=>'<div>'+imgTag(u,"CitySeller Cakes cake photo "+(i+1),true,600,600,"Demo image")+'</div>').join("");
+  $$("[data-img]").forEach(im=>{im.src=GALLERY_IMAGES[+im.dataset.img]||ph("Demo image");im.onerror=function(){this.onerror=null;this.src=ph("Demo image")}});
+}
+function pickCat(c){state.cat=c;go("menu");if(state.cur==="menu")renderMenu()}
+/* ===== 7. CART ===== */
+function loadCart(){try{const c=JSON.parse(store("get","csc_cart")||"{}");if(c&&typeof c==="object")state.cart=c}catch(e){}}
+function saveCart(){store("set","csc_cart",JSON.stringify(state.cart))}
+function cartItems(){return Object.keys(state.cart).map(id=>({p:MENU.find(m=>m.id===id),q:state.cart[id]})).filter(x=>x.p&&x.q>0)}
+function cartTotal(){return cartItems().reduce((s,x)=>s+x.p.price*x.q,0)}
+function updBadge(){const n=cartItems().reduce((s,x)=>s+x.q,0);$("#cartCount").textContent=n||""}
+function setQty(id,q){if(q<=0)delete state.cart[id];else state.cart[id]=Math.min(q,50);saveCart();updBadge();renderCart()}
+function renderCart(){
+  const it=cartItems(),box=$("#cartList");
+  if(!it.length){box.innerHTML='<div class="empty"><p>'+t("cartEmpty")+'</p><div class="btns" style="justify-content:center"><button class="btn" data-go="menu">'+t("browse")+'</button></div></div>';return}
+  box.innerHTML=it.map(x=>'<div class="ci">'+imgTag(x.p.image,pname(x.p),true,64,64,"")+'<div><strong>'+esc(pname(x.p))+'</strong><div class="sub" style="font-size:13px">'+rupee(x.p.price)+'</div>'
+  +'<div class="r"><div class="qty"><button data-act="cminus" data-id="'+x.p.id+'" aria-label="−">−</button><span>'+x.q+'</span><button data-act="cplus" data-id="'+x.p.id+'" aria-label="+">+</button></div><strong>'+rupee(x.p.price*x.q)+'</strong><button class="rm" data-act="crm" data-id="'+x.p.id+'">'+t("remove")+'</button></div></div></div>').join("")
+  +'<div class="tot"><span>'+t("total")+'</span><span>'+rupee(cartTotal())+'</span></div>';
+}
+/* ===== 8. WHATSAPP ===== */
+function openWa(text){
+  if(!validNum(BUSINESS_CONFIG.whatsapp)){toast(t("noWa"));return false}
+  const w=window.open("https://wa.me/"+digits(BUSINESS_CONFIG.whatsapp)+"?text="+encodeURIComponent(text),"_blank","noopener");
+  if(!w)location.href="https://wa.me/"+digits(BUSINESS_CONFIG.whatsapp)+"?text="+encodeURIComponent(text);
+  return true;
+}
+function setErr(input,msg){const f=input.closest(".f");f.classList.toggle("bad",!!msg);const e=$(".err",f);if(e)e.textContent=msg||""}
+function req(input){const ok=input.value.trim()!=="";setErr(input,ok?"":t("req"));return ok}
+function phoneOk(input){const v=input.value.trim();if(!v){setErr(input,t("req"));return false}if(!validNum(v)){setErr(input,t("badPhone"));return false}setErr(input,"");return true}
+function submitCheckout(){
+  const n=$("#kName"),p=$("#kPhone"),a=$("#kAddr");
+  const ok=[req(n),phoneOk(p),req(a)].every(Boolean);
+  if(!cartItems().length){toast(t("cartEmpty"));return}
+  if(!ok)return;
+  let m="*New order – CitySeller Cakes*\nName: "+n.value.trim()+"\nPhone: "+p.value.trim()+"\nAddress: "+a.value.trim()+"\n\n*Items*\n";
+  cartItems().forEach((x,i)=>{m+=(i+1)+". "+x.p.nameEn+" × "+x.q+" @ "+rupee(x.p.price)+" = "+rupee(x.p.price*x.q)+"\n"});
+  m+="\n*Grand total: "+rupee(cartTotal())+"*";
+  if($("#kNote").value.trim())m+="\nNotes: "+$("#kNote").value.trim();
+  openWa(m);
+}
+/* ===== 9. CUSTOM CAKE ===== */
+function fillOptions(){
+  const o=CUSTOM_OPTIONS,fill=(id,arr)=>{const s=$(id),v=s.value;s.innerHTML=arr.map(x=>'<option>'+esc(x)+'</option>').join("");if(v)s.value=v};
+  fill("#cFlavour",o.flavours);fill("#cWeight",o.weights);fill("#cShape",o.shapes);
+}
+function todayStr(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function submitCustom(){
+  const n=$("#cName"),p=$("#cPhone"),d=$("#cDate");
+  let dOk=req(d);if(dOk&&d.value<todayStr()){setErr(d,t("badDate"));dOk=false}
+  const ok=[req(n),phoneOk(p),dOk].every(Boolean);if(!ok)return;
+  const m="*Custom cake request – CitySeller Cakes*\nName: "+n.value.trim()+"\nPhone: "+p.value.trim()+"\nFlavour: "+$("#cFlavour").value+"\nWeight: "+$("#cWeight").value+"\nShape/design: "+$("#cShape").value+"\nMessage on cake: "+($("#cMsg").value.trim()||"-")+"\nRequired date: "+d.value+"\nMode: "+$("#cMode").value+"\nInstructions: "+($("#cNote").value.trim()||"-");
+  openWa(m);
+}
+/* ===== 11. FOOTER + CONTACT RENDERING ===== */
+function footerHTML(){
+  const C=BUSINESS_CONFIG,fx=C.fantovexContactUrl?'<a href="'+esc(C.fantovexContactUrl)+'" target="_blank" rel="noopener noreferrer">'+t("fxContact")+'</a>':'<span>'+t("fxContact")+": "+t("notSet")+'</span>';
+  const nav=[["home","nHome"],["menu","nMenu"],["custom-cakes","nCustom"],["cart","nCart"],["contact","nContact"]].map(x=>'<button data-go="'+x[0]+'">'+t(x[1])+'</button>').join("");
+  return '<div class="wrap"><div class="fg"><div><h4>CitySeller Cakes</h4><p class="sub">'+esc(C.address)+'</p><p class="sub" style="font-family:Georgia,serif;font-style:italic">'+t("tagline")+'</p></div>'
+  +'<div><h4>'+t("fLinks")+'</h4><nav>'+nav+'</nav></div>'
+  +'<div><h4>'+t("fConnect")+'</h4><nav><a href="'+esc(C.instagram)+'" target="_blank" rel="noopener noreferrer">Instagram</a><button data-act="call">'+t("callNow")+'</button><button data-act="wa">WhatsApp</button></nav></div></div>'
+  +'<div class="fx"><span>'+t("powered")+' <a href="'+esc(C.fantovexWebsite)+'" target="_blank" rel="noopener noreferrer">Fantovex</a></span><span>'+t("fdev")+'</span>'+fx+'</div></div>';
+}
+function renderFooters(){$$("[data-footer]").forEach(f=>f.innerHTML=footerHTML())}
+function renderContact(){
+  const C=BUSINESS_CONFIG;
+  $("#cAddr").textContent=C.address;
+  $("#cHours").textContent=C.openingHours||t("notSet");
+  $("#igBtn").href=C.instagram;
+  const dir=C.googleMapsDirectionsUrl||"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent("CitySeller Cakes, "+C.address);
+  $("#dirBtn").href=dir;
+  const mb=$("#mapBox");
+  if(C.googleMapsEmbedUrl){mb.innerHTML='<iframe title="CitySeller Cakes map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="'+esc(C.googleMapsEmbedUrl)+'"></iframe>';mb.style.padding="0";mb.style.display="block"}
+  else{mb.innerHTML='<div><p>'+t("mapFallback")+'</p><p style="margin-top:8px"><a href="'+esc(dir)+'" target="_blank" rel="noopener noreferrer" style="color:#B89450">'+t("directions")+'</a></p></div>'}
+  $("#dfx").innerHTML=C.fantovexContactUrl?'<a href="'+esc(C.fantovexContactUrl)+'" target="_blank" rel="noopener noreferrer">'+t("fxContact")+'</a>':t("fxContact")+": "+t("notSet");
+}
+/* ===== 10b. LANGUAGE APPLY ===== */
+function applyLang(){
+  document.documentElement.lang=state.lang;
+  $$("[data-i]").forEach(e=>e.textContent=t(e.dataset.i));
+  $$("[data-aria]").forEach(e=>e.setAttribute("aria-label",t(e.dataset.aria)));
+  $$("[data-lang]").forEach(b=>b.classList.toggle("on",b.dataset.lang===state.lang));
+  const m=["FRESHLY BAKED","MADE FOR EVERY CELEBRATION","CITYSELLER CAKES","DEOGHAR'S FAVOURITE CAKES"];
+  const mh=["ताज़ा बेक्ड","हर जश्न के लिए","CITYSELLER CAKES","देवघर के फेवरेट केक"];
+  const row=(state.lang==="hi"?mh:m).map(x=>"<span>"+x+"</span>").join("");
+  $("#mq").innerHTML=row+row+row+row;
+  renderFooters();renderFeatured();renderContact();renderCart();if(state.cur==="menu")renderMenu();
+  ["#cName","#cPhone","#cDate","#kName","#kPhone","#kAddr"].forEach(s=>setErr($(s),""));
+  fillOptions();
+}
+/* ===== 12. EVENTS (single delegated set, bound once) ===== */
+document.addEventListener("click",e=>{
+  const el=e.target.closest("[data-go],[data-act],[data-cat],[data-filter],[data-lang]");
+  if(!el){if(e.target.id==="backdrop")closeDrawer();return}
+  if(el.dataset.go){closeDrawer(true);go(el.dataset.go);return}
+  if(el.dataset.cat){pickCat(el.dataset.cat);return}
+  if(el.dataset.filter){state.cat=el.dataset.filter;renderMenu();return}
+  if(el.dataset.lang){state.lang=el.dataset.lang;store("set","csc_lang",state.lang);applyLang();return}
+  const a=el.dataset.act,id=el.dataset.id;
+  if(a==="wa"){openWa(t("gen"))}
+  else if(a==="call"){if(!BUSINESS_CONFIG.phone||!validNum(BUSINESS_CONFIG.phone))toast(t("noCall"));else location.href="tel:+"+digits(BUSINESS_CONFIG.phone)}
+  else if(a==="qplus"||a==="qminus"){state.q[id]=Math.max(1,Math.min(50,(state.q[id]||1)+(a==="qplus"?1:-1)));const s=$('[data-qtybox="'+id+'"] span');if(s)s.textContent=state.q[id]}
+  else if(a==="add"){const q=el.dataset.wq==="1"?(state.q[id]||1):1;setQty(id,(state.cart[id]||0)+q);toast(t("added"))}
+  else if(a==="cplus")setQty(id,(state.cart[id]||0)+1);
+  else if(a==="cminus")setQty(id,(state.cart[id]||0)-1);
+  else if(a==="crm")setQty(id,0);
+});
+$("#menuBtn").addEventListener("click",openDrawer);
+$("#closeBtn").addEventListener("click",()=>closeDrawer());
+$("#customForm").addEventListener("submit",e=>{e.preventDefault();submitCustom()});
+$("#checkForm").addEventListener("submit",e=>{e.preventDefault();submitCheckout()});
+/* ===== INIT ===== */
+(function init(){
+  const sl=store("get","csc_lang");if(sl==="hi"||sl==="en")state.lang=sl;
+  loadCart();updBadge();
+  $("#cDate").min=todayStr();
+  renderGallery();applyLang();
+  const h=location.hash.slice(1);show(PAGES.includes(h)?h:"home");
+})();
+</script>
+</body>
+</html>
