@@ -41,7 +41,7 @@ body{
 button,a{font:inherit;color:inherit}
 button{border:0;background:none}
 a{text-decoration:none}
-.site{height:100dvh;position:relative;overflow:hidden}
+.site{height:100vh;height:100dvh;position:relative;overflow:hidden}
 .topbar{
   position:fixed;z-index:20;top:16px;left:50%;transform:translateX(-50%);
   width:min(1120px,calc(100% - 28px));height:64px;border:1px solid var(--line);
@@ -65,7 +65,7 @@ a{text-decoration:none}
 
 .pages{height:100%;position:relative}
 .page{
-  position:absolute;inset:0;padding:112px max(6%,24px) 55px;
+  position:absolute;top:0;right:0;bottom:0;left:0;padding:112px max(6%,24px) 55px;
   display:flex;align-items:center;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;opacity:0;visibility:hidden;
   transform:translateX(35px);transition:opacity .38s var(--ease),transform .45s var(--ease),visibility .38s;
 }
@@ -94,7 +94,7 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
   background:radial-gradient(circle at 45% 30%,rgba(50,255,138,.20),transparent 35%),#09100c;
   border:1px solid rgba(50,255,138,.23);box-shadow:0 0 0 22px rgba(50,255,138,.025),0 0 100px rgba(50,255,138,.08)
 }
-.orb:before{content:"";position:absolute;inset:8%;border:1px dashed rgba(50,255,138,.22);border-radius:50%;animation:spin 20s linear infinite}
+.orb:before{content:"";position:absolute;top:8%;right:8%;bottom:8%;left:8%;border:1px dashed rgba(50,255,138,.22);border-radius:50%;animation:spin 20s linear infinite}
 .orb b{font-size:clamp(5rem,13vw,9rem);letter-spacing:-.1em}
 @keyframes spin{to{transform:rotate(360deg)}}
 
@@ -139,12 +139,12 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
 .note{margin-top:16px;font-size:.7rem!important;color:#606c66!important}
 
 .overlay{
-  position:fixed;z-index:40;inset:0;background:rgba(0,0,0,.52);backdrop-filter:blur(3px);
+  position:fixed;z-index:40;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.52);backdrop-filter:blur(3px);
   opacity:0;visibility:hidden;transition:.25s
 }
 .overlay.open{opacity:1;visibility:visible}
 .side-nav{
-  position:fixed;z-index:50;top:0;right:0;height:100dvh;width:min(390px,88vw);
+  position:fixed;z-index:50;top:0;right:0;height:100vh;height:100dvh;width:min(390px,88vw);
   background:rgba(6,10,8,.97);border-left:1px solid rgba(255,255,255,.09);
   box-shadow:-25px 0 80px rgba(0,0,0,.45);padding:28px 22px;
   transform:translateX(102%);transition:transform .42s var(--ease);
@@ -199,7 +199,7 @@ h2{font-size:clamp(2.6rem,7vw,5.5rem);line-height:.95;letter-spacing:-.065em}
 .hero-copy{padding:6px 0}
 .hero-visual{position:relative;min-height:360px;border:1px solid var(--line);border-radius:30px;overflow:hidden;background:linear-gradient(145deg,#10261a,#07100b 58%,#050706)}
 .hero-visual img{width:100%;height:100%;object-fit:cover;opacity:.45;filter:saturate(.75) contrast(1.05)}
-.hero-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(3,10,6,.25),rgba(3,10,6,.82));pointer-events:none}
+.hero-visual:after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;background:linear-gradient(135deg,rgba(3,10,6,.25),rgba(3,10,6,.82));pointer-events:none}
 .hero-badge{position:absolute;z-index:2;left:22px;bottom:22px;right:22px;padding:18px;border:1px solid rgba(50,255,138,.18);border-radius:20px;background:rgba(4,10,7,.72);backdrop-filter:blur(12px)}
 .hero-badge b{font-size:1.35rem}.hero-badge p{color:#9ba8a1;font-size:.78rem;margin-top:5px}
 .home-section{border:1px solid var(--line);border-radius:28px;padding:28px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.01))}
