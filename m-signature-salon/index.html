@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M Signature Unisex Salon – Deoghar</title>
+<meta name="description" content="M Signature Unisex Salon, Court Road, Williams Town, Deoghar. Unisex salon and bridal makeup.">
+<style>
+:root{--w:#FFFFFF;--iv:#FAF7F0;--gold:#C5A46D;--gd:#9C7C45;--bg:#EDE3D3;--tx:#292929;--tx2:#6b665f;--bd:#E9E5DE;--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--tx);background:var(--w);line-height:1.6;overflow-x:hidden;-webkit-text-size-adjust:100%}
+body.lock{overflow:hidden}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.eye{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gd)}
+.rule{width:48px;height:1px;background:var(--gold);margin:16px 0}
+.sub{color:var(--tx2)}
+.sec{padding:52px 0}
+h2{font-size:30px}
+/* header */
+.top{position:sticky;top:0;z-index:30;background:var(--w);border-bottom:1px solid var(--bd);padding-top:env(safe-area-inset-top,0)}
+.hb{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{background:none;border:0;cursor:pointer;font-family:var(--serif);letter-spacing:.22em;font-size:15px;text-align:left;line-height:1.1}
+.logo small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.3em;color:var(--gd)}
+.hr{display:flex;gap:8px;align-items:center}
+.lg{display:flex;border:1px solid var(--bd)}
+.lg button{background:var(--w);border:0;padding:8px 10px;cursor:pointer;font-size:12px;min-height:40px}
+.lg button.on{background:var(--gold);color:#fff}
+.ib{width:44px;height:44px;border:1px solid var(--bd);background:var(--w);cursor:pointer;display:grid;place-items:center}
+.ib svg{width:22px;height:22px;stroke:var(--tx);fill:none;stroke-width:1.5}
+/* drawer */
+.bd{position:fixed;inset:0;background:rgba(41,41,41,.3);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;z-index:50}
+.bd.on{opacity:1;visibility:visible}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(88vw,340px);background:var(--iv);border-left:1px solid var(--gold);z-index:60;transform:translateX(100%);visibility:hidden;transition:transform .28s ease,visibility .28s;display:flex;flex-direction:column;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+.dr.on{transform:none;visibility:visible}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;border-bottom:1px solid var(--bg)}
+.dn{flex:1;overflow-y:auto}
+.dn>button.nav{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--bg);padding:15px 22px;font-family:var(--serif);font-size:19px;cursor:pointer}
+.dn>button.nav.act{color:var(--gd)}
+.da{padding:16px 22px;display:grid;gap:10px}
+.df{padding:14px 22px;border-top:1px solid var(--bg);font-size:12px;color:var(--tx2)}
+.df a{color:var(--gd)}
+/* buttons */
+.btn{display:inline-block;text-align:center;border:1px solid var(--gold);background:var(--gold);color:#fff;padding:13px 22px;cursor:pointer;text-decoration:none;font-size:13px;letter-spacing:.14em;text-transform:uppercase;min-height:46px}
+.btn.o{background:var(--w);color:var(--gd)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+/* pages */
+.page{display:none}
+.page.on{display:block;animation:fi .25s ease}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+/* hero */
+.hero{display:grid;background:var(--iv)}
+.ht{padding:40px 20px 36px}
+.ht h1{font-size:44px;letter-spacing:.06em}
+.ht h1 span{display:block;font-size:20px;letter-spacing:.4em;color:var(--gd);margin-top:6px}
+.tag{font-family:var(--serif);font-style:italic;font-size:21px;margin-top:18px}
+.badge{display:inline-block;border:1px solid var(--gold);padding:6px 12px;font-size:13px;margin-top:18px;background:var(--w)}
+.ph{position:relative;background:linear-gradient(160deg,var(--bg),var(--iv));display:grid;place-items:center;text-align:center;color:var(--gd);font-family:var(--serif);overflow:hidden}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph span{padding:12px;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+.ph em{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.2em;opacity:.75;margin-top:4px;font-style:normal}
+.hero .ph{aspect-ratio:4/5;margin:0 20px 28px;border:1px solid var(--gold)}
+@media(min-width:820px){.hero{grid-template-columns:1.05fr 1fr;min-height:540px}.ht{padding:80px 40px 80px max(20px,calc((100vw - 1120px)/2 + 20px))}.ht h1{font-size:64px}.hero .ph{aspect-ratio:auto;margin:36px max(20px,calc((100vw - 1120px)/2 + 20px)) 36px 0}}
+/* marquee */
+.mq{border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);background:var(--w);overflow:hidden;white-space:nowrap}
+.mt{display:inline-flex;animation:mq 30s linear infinite}
+.mt span{padding:9px 0;font-size:11px;letter-spacing:.24em;color:var(--gd)}
+.mt span:after{content:"✦";padding:0 22px;font-size:9px}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.mt{animation:none}.page.on{animation:none}.dr,.bd{transition:none}}
+/* offer */
+.offer{border:1px solid var(--gold);background:var(--iv);padding:34px 20px;text-align:center;margin:0}
+.offer h2{font-size:24px;letter-spacing:.08em}
+.demo{display:inline-block;margin-top:10px;font-size:11px;letter-spacing:.14em;color:var(--gd);border:1px dashed var(--gold);padding:4px 10px}
+/* intro / split */
+.split{display:grid;gap:26px}
+@media(min-width:820px){.split{grid-template-columns:1fr 1fr;gap:50px;align-items:center}}
+.tiles{display:grid;gap:0;border-top:1px solid var(--bg)}
+.tile{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--bg);cursor:pointer;background:none;border-left:0;border-right:0;border-top:0;width:100%;text-align:left}
+.tile h3{font-size:22px}
+.tile small{color:var(--tx2);display:block}
+.tile i{font-style:normal;color:var(--gold);font-size:22px}
+/* services */
+.pg{background:var(--iv);border-bottom:1px solid var(--bd);padding:38px 0 26px}
+.notice{border:1px solid var(--gold);background:var(--iv);padding:14px 16px;font-size:13px;margin-top:18px;border-left:4px solid var(--gold)}
+.notice b{color:var(--gd);letter-spacing:.06em}
+.tabs{display:flex;gap:0;overflow-x:auto;border-bottom:1px solid var(--bg);margin-top:22px}
+.tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:12px 16px;cursor:pointer;white-space:nowrap;font-size:14px;min-height:46px}
+.tabs button.on{border-bottom-color:var(--gold);color:var(--gd)}
+.sv{display:grid;grid-template-columns:1fr auto;gap:4px 14px;padding:18px 0;border-bottom:1px solid var(--bg);align-items:center}
+.sv h3{font-size:19px}
+.sv p{font-size:13px;color:var(--tx2)}
+.sv .pr{font-family:var(--serif);color:var(--gd);font-size:17px;text-align:right}
+.sv .bk{grid-column:1/-1;justify-self:start;background:none;border:0;border-bottom:1px solid var(--gold);color:var(--gd);cursor:pointer;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:6px 0;min-height:36px}
+.bk.h{display:none}
+/* bridal + gallery grids */
+.pf{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px}
+.pf .ph{aspect-ratio:3/4;border:1px solid var(--bg)}
+.gg{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px}
+.gg .ph{aspect-ratio:1/1;border:1px solid var(--bg)}
+.gg .ph:nth-child(1){grid-column:span 2;aspect-ratio:16/9}
+.gg .ph:nth-child(4){aspect-ratio:3/4;grid-row:span 1}
+@media(min-width:820px){.gg{grid-template-columns:repeat(6,1fr);grid-auto-rows:130px}.gg .ph{aspect-ratio:auto!important;grid-column:auto!important;grid-row:auto!important}.gg .ph:nth-child(1){grid-column:span 3!important;grid-row:span 3!important}.gg .ph:nth-child(2){grid-column:span 3!important;grid-row:span 2!important}.gg .ph:nth-child(3){grid-column:span 2!important;grid-row:span 2!important}.gg .ph:nth-child(4){grid-column:span 1!important;grid-row:span 2!important}.gg .ph:nth-child(5){grid-column:span 3!important;grid-row:span 1!important}.gg .ph:nth-child(6){grid-column:span 3!important;grid-row:span 2!important}.pf{grid-template-columns:repeat(4,1fr)}.ph{transition:filter .3s}.ph:hover{filter:brightness(.97)}}
+/* contact */
+.cg{display:grid;gap:24px;margin-top:22px}
+@media(min-width:820px){.cg{grid-template-columns:1fr 1.2fr}}
+.box{border:1px solid var(--bg);background:var(--iv);padding:22px;display:grid;gap:10px;align-content:start}
+.map{border:1px solid var(--bg);min-height:260px;display:grid;place-items:center;text-align:center;padding:20px;background:var(--iv)}
+/* footer */
+.ft{border-top:2px solid var(--gold);background:var(--iv);margin-top:36px;padding:30px 0 96px;font-size:14px}
+.fg{display:grid;gap:20px}
+@media(min-width:820px){.fg{grid-template-columns:1.3fr 1fr 1fr}}
+.ft h4{font-family:var(--serif);font-weight:400;font-size:17px;margin-bottom:6px}
+.ft nav{display:flex;flex-direction:column;align-items:flex-start}
+.ft nav button,.ft nav a{background:none;border:0;padding:5px 0;cursor:pointer;color:var(--tx2);text-decoration:none;font-size:14px;text-align:left}
+.fx{margin-top:22px;padding-top:14px;border-top:1px solid var(--bg);font-size:12px;color:var(--tx2);display:flex;flex-wrap:wrap;gap:6px 18px}
+.fx a{color:var(--gd)}
+/* modal */
+.md{position:fixed;inset:0;z-index:70;background:rgba(41,41,41,.35);display:none;align-items:flex-end;justify-content:center}
+.md.on{display:flex}
+.mb{background:var(--w);border-top:2px solid var(--gold);width:100%;max-width:520px;max-height:92vh;overflow-y:auto;padding:22px 20px calc(22px + env(safe-area-inset-bottom,0))}
+@media(min-width:600px){.md{align-items:center}.mb{border:1px solid var(--gold)}}
+.f{margin-top:12px}
+.f label{display:block;font-size:12px;letter-spacing:.08em;color:var(--tx2);margin-bottom:4px}
+.f input,.f select,.f textarea{width:100%;border:1px solid var(--bd);background:var(--w);padding:11px;min-height:46px;border-radius:0}
+.f textarea{min-height:70px}
+.f.bad input,.f.bad select{border-color:#b3472f}
+.er{color:#b3472f;font-size:12px}
+/* fab + toast */
+.fab{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:40;width:54px;height:54px;border-radius:50%;background:#fff;border:1px solid var(--bg);box-shadow:0 2px 10px rgba(0,0,0,.15);display:grid;place-items:center;cursor:pointer;text-decoration:none}
+.fab svg{width:30px;height:30px;fill:#25D366}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--tx);color:#fff;padding:10px 16px;font-size:14px;z-index:80;max-width:88vw;text-align:center;display:none}
+.toast.on{display:block}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap hb">
+<button class="logo" data-go="home" aria-label="M Signature Unisex Salon">M SIGNATURE<small>UNISEX SALON</small></button>
+<div class="hr"><div class="lg" role="group" aria-label="Language"><button data-lang="en">EN</button><button data-lang="hi">हिन्दी</button></div>
+<button class="ib" id="mBtn" aria-expanded="false" aria-controls="dr" data-aria="menuL"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg></button></div></div></header>
+
+<div class="bd" id="bd"></div>
+<aside class="dr" id="dr" role="dialog" aria-modal="true" aria-label="Menu">
+<div class="dh"><span class="logo">M SIGNATURE<small>UNISEX SALON</small></span><button class="ib" id="cBtn" data-aria="closeL"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+<div class="dn">
+<button class="nav" data-go="home" data-i="nHome"></button><button class="nav" data-go="services" data-i="nServ"></button><button class="nav" data-go="bridal" data-i="nBridal"></button><button class="nav" data-go="gallery" data-i="nGal"></button><button class="nav" data-go="contact" data-i="nContact"></button>
+<div class="da"><button class="btn" data-book data-i="bookSlot"></button><a class="btn o" href="tel:+916205136925" data-i="callNow"></a><a class="btn o" data-wa="gen" data-i="waBook"></a></div></div>
+<div class="df"><div data-i="crafted"></div><div><a href="https://fantovexhq.github.io/" target="_blank" rel="noopener noreferrer">Powered by Fantovex</a></div></div>
+</aside>
+
+<main>
+<!-- HOME -->
+<section class="page" data-page="home">
+<div class="hero"><div class="ht"><div class="eye" data-i="loc"></div><div class="rule"></div><h1>M SIGNATURE<span>UNISEX SALON</span></h1><p class="tag" data-i="tagline"></p><p class="sub" style="margin-top:12px;max-width:440px" data-i="heroTxt"></p>
+<div class="badge">★ 5.0 <span data-i="gRating"></span> · 8 <span data-i="reviews"></span></div>
+<div class="btns"><a class="btn" href="tel:+916205136925" data-i="callNow"></a><a class="btn o" data-wa="gen" data-i="waBook"></a></div></div>
+<div class="ph" data-ph="0" data-lab="Beauty & Salon"></div></div>
+<div class="mq" aria-hidden="true"><div class="mt" id="mt"></div></div>
+<div class="wrap sec"><div class="split"><div><div class="eye" data-i="welcome"></div><div class="rule"></div><h2 data-i="introH"></h2><p class="sub" style="margin-top:12px" data-i="introP"></p></div>
+<div class="tiles"><button class="tile" data-go="services"><span><h3 data-i="nServ"></h3><small data-i="tServ"></small></span><i>→</i></button><button class="tile" data-go="bridal"><span><h3 data-i="nBridal"></h3><small data-i="tBridal"></small></span><i>→</i></button><button class="tile" data-go="gallery"><span><h3 data-i="nGal"></h3><small data-i="tGal"></small></span><i>→</i></button></div></div></div>
+<div class="wrap"><div class="offer" id="offer"><div class="eye">Launch</div><h2 data-i="offerH"></h2><p class="sub" style="margin-top:6px" data-i="offerP"></p><div class="btns" style="justify-content:center"><button class="btn" data-book data-i="bookSlot"></button></div></div></div>
+<footer class="ft" data-ft></footer>
+</section>
+
+<!-- SERVICES -->
+<section class="page" data-page="services">
+<div class="pg"><div class="wrap"><div class="eye">M Signature</div><h2 data-i="nServ"></h2><div class="rule"></div>
+<div class="notice"><b data-i="demoB"></b> <span data-i="demoT"></span></div></div></div>
+<div class="wrap"><div class="tabs" id="tabs" role="tablist"></div><div id="svList"></div>
+<div class="btns"><button class="btn" data-book data-i="bookSlot"></button></div></div>
+<footer class="ft" data-ft></footer>
+</section>
+
+<!-- BRIDAL -->
+<section class="page" data-page="bridal">
+<div class="hero"><div class="ht"><div class="eye" data-i="nBridal"></div><div class="rule"></div><h1 style="font-size:38px" data-i="brH"></h1><p class="sub" style="margin-top:14px;max-width:440px" data-i="brP"></p><div class="btns"><button class="btn" data-book data-i="consult"></button><a class="btn o" data-wa="bridal" data-i="waBook"></a></div></div>
+<div class="ph" data-ph="4" data-lab="Bridal Makeup"></div></div>
+<div class="wrap sec"><div class="eye" data-i="portfolio"></div><div class="rule"></div><h2 data-i="portH"></h2><p class="sub" data-i="demoGal"></p>
+<div class="pf"><div class="ph" data-ph="4" data-lab="Bridal Makeup"></div><div class="ph" data-ph="4" data-lab="Bridal Makeup"></div><div class="ph" data-ph="5" data-lab="Party Makeup"></div><div class="ph" data-ph="5" data-lab="Party Makeup"></div></div></div>
+<div class="wrap"><div class="split"><div><h2 data-i="partyH"></h2><div class="rule"></div><p class="sub" data-i="partyP"></p></div><div><h2 data-i="engH"></h2><div class="rule"></div><p class="sub" data-i="engP"></p></div></div>
+<div class="notice" style="margin-top:30px"><b data-i="demoB"></b> <span data-i="demoT2"></span></div>
+<div class="offer" style="margin-top:30px"><h2 data-i="consultH"></h2><div class="btns" style="justify-content:center"><button class="btn" data-book data-i="bookSlot"></button><a class="btn o" data-wa="bridal" data-i="waBook"></a></div></div></div>
+<footer class="ft" data-ft></footer>
+</section>
+
+<!-- GALLERY -->
+<section class="page" data-page="gallery">
+<div class="pg"><div class="wrap"><div class="eye">M Signature</div><h2 data-i="nGal"></h2><div class="rule"></div><div class="notice"><b data-i="demoB2"></b> <span data-i="demoGal"></span></div></div></div>
+<div class="wrap"><div class="gg" id="gg"></div></div>
+<footer class="ft" data-ft></footer>
+</section>
+
+<!-- CONTACT -->
+<section class="page" data-page="contact">
+<div class="pg"><div class="wrap"><div class="eye">M Signature</div><h2 data-i="nContact"></h2><div class="rule"></div></div></div>
+<div class="wrap"><div class="cg"><div class="box"><h3>M Signature Unisex Salon</h3>
+<p><strong data-i="addr"></strong><br>Court Road, Williams Town, Deoghar, Jharkhand<br>1st Floor, Louis Philippe Showroom<br>Near Bhagwan Talkies More</p>
+<p><strong data-i="phones"></strong><br>6205136925<br>9933889700</p>
+<p><strong data-i="hours"></strong><br><span data-i="hoursT"></span></p>
+<div class="btns" style="margin-top:6px"><a class="btn" href="tel:+916205136925" data-i="callP"></a><a class="btn o" href="tel:+919933889700" data-i="callA"></a><a class="btn o" data-wa="gen" data-i="waBook"></a><a class="btn o" id="dir" target="_blank" rel="noopener noreferrer" data-i="directions"></a></div></div>
+<div class="map"><div><p data-i="mapT"></p><p style="margin-top:10px"><a id="dir2" target="_blank" rel="noopener noreferrer" style="color:var(--gd)" data-i="directions"></a></p></div></div></div></div>
+<footer class="ft" data-ft></footer>
+</section>
+</main>
+
+<div class="md" id="md"><div class="mb" role="dialog" aria-modal="true" aria-labelledby="mh"><div class="hr" style="justify-content:space-between"><h2 id="mh" style="font-size:24px" data-i="bookSlot"></h2><button class="ib" id="mClose" data-aria="closeL"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+<form id="bf" novalidate>
+<div class="f"><label for="bn" data-i="name"></label><input id="bn" autocomplete="name"><div class="er"></div></div>
+<div class="f"><label for="bp" data-i="phoneOpt"></label><input id="bp" type="tel" inputmode="tel" autocomplete="tel"></div>
+<div class="f"><label for="bs" data-i="service"></label><select id="bs"></select></div>
+<div class="f"><label for="bd2" data-i="date"></label><input id="bd2" type="date"><div class="er"></div></div>
+<div class="f"><label for="bt" data-i="time"></label><input id="bt" type="time"><div class="er"></div></div>
+<div class="f"><label for="bm" data-i="msgOpt"></label><textarea id="bm"></textarea></div>
+<div class="btns"><button class="btn" type="submit" data-i="sendWa"></button></div>
+<p class="sub" style="font-size:12px;margin-top:12px" data-i="noConf"></p></form></div></div>
+
+<a class="fab" id="fab" data-wa="gen" data-aria="fabL" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.6-.1 1.3z"/></svg></a>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ===== 1. CONFIG ===== */
+const CFG={name:"M Signature Unisex Salon",wa:"916205136925",phone1:"6205136925",phone2:"9933889700",
+ dir:"https://www.google.com/maps/search/?api=1&query=M+Signature+Unisex+Salon+Court+Road+Williams+Town+Deoghar",
+ fx:"https://fantovexhq.github.io/",fxContact:"", // add Fantovex contact link when verified
+ marquee:["NEW IN DEOGHAR","BEAUTY","GROOMING","BRIDAL MAKEUP","YOUR STYLE, YOUR SIGNATURE"],
+ images:["","","","","",""]}; // replaceable image URLs: [salon, hair, men, skin, bridal, party]
+/* ===== 2. SERVICES (single source; DEMO prices) ===== */
+const TABS=[{id:"hair",en:"Hair",hi:"हेयर"},{id:"skin",en:"Skin & Facial",hi:"स्किन और फेशियल"},{id:"men",en:"Men's Grooming",hi:"मेन्स ग्रूमिंग"},{id:"makeup",en:"Bridal & Party Makeup",hi:"ब्राइडल और पार्टी मेकअप"}];
+const SERVICES=[
+{c:"hair",en:"Haircut",hi:"हेयरकट",de:"Cut and finish",dh:"कट और फिनिश",p:"₹199"},
+{c:"hair",en:"Hair Wash & Styling",hi:"हेयर वॉश और स्टाइलिंग",de:"Wash with blow-dry styling",dh:"वॉश और ब्लो-ड्राई स्टाइलिंग",p:"₹249"},
+{c:"hair",en:"Hair Spa",hi:"हेयर स्पा",de:"Nourishing hair care",dh:"बालों की देखभाल",p:"₹599"},
+{c:"hair",en:"Hair Smoothening",hi:"हेयर स्मूदनिंग",de:"Smooth, manageable hair",dh:"चिकने और सुलझे बाल",p:"Starting at ₹1,499",ph:"₹1,499 से शुरू"},
+{c:"hair",en:"Hair Colour",hi:"हेयर कलर",de:"Colour service",dh:"कलर सेवा",p:"Starting at ₹799",ph:"₹799 से शुरू"},
+{c:"skin",en:"Basic Facial",hi:"बेसिक फेशियल",de:"Cleansing facial",dh:"क्लींजिंग फेशियल",p:"₹499"},
+{c:"skin",en:"Clean-Up",hi:"क्लीन-अप",de:"Quick skin refresh",dh:"त्वचा की त्वरित सफाई",p:"₹299"},
+{c:"skin",en:"Glow Facial",hi:"ग्लो फेशियल",de:"Facial for a fresh glow",dh:"निखार के लिए फेशियल",p:"₹699"},
+{c:"skin",en:"Detan Treatment",hi:"डी-टैन ट्रीटमेंट",de:"Tan-removal care",dh:"टैन हटाने की देखभाल",p:"₹399"},
+{c:"men",en:"Men's Haircut",hi:"पुरुषों का हेयरकट",de:"Classic and modern cuts",dh:"क्लासिक और मॉडर्न कट",p:"₹149"},
+{c:"men",en:"Beard Styling",hi:"बीयर्ड स्टाइलिंग",de:"Shape and trim",dh:"शेप और ट्रिम",p:"₹99"},
+{c:"men",en:"Haircut + Beard",hi:"हेयरकट + बीयर्ड",de:"Combined grooming",dh:"कॉम्बो ग्रूमिंग",p:"₹199"},
+{c:"men",en:"Head Massage",hi:"हेड मसाज",de:"Relaxing massage",dh:"आरामदायक मसाज",p:"₹199"},
+{c:"makeup",en:"Party Makeup",hi:"पार्टी मेकअप",de:"Look for parties and events",dh:"पार्टी और कार्यक्रम के लिए",p:"₹1,499"},
+{c:"makeup",en:"Engagement Makeup",hi:"एंगेजमेंट मेकअप",de:"Look for engagement",dh:"सगाई के लिए लुक",p:"₹2,499"},
+{c:"makeup",en:"Bridal Makeup",hi:"ब्राइडल मेकअप",de:"Bridal look",dh:"दुल्हन का लुक",p:"₹5,999"},
+{c:"makeup",en:"Premium Bridal Makeup",hi:"प्रीमियम ब्राइडल मेकअप",de:"Premium bridal look",dh:"प्रीमियम दुल्हन लुक",p:"₹8,999"}];
+const GAL=[{en:"Salon Interior",hi:"सैलून इंटीरियर",i:0},{en:"Hair Styling",hi:"हेयर स्टाइलिंग",i:1},{en:"Men's Grooming",hi:"मेन्स ग्रूमिंग",i:2},{en:"Facial & Skin Care",hi:"फेशियल और स्किन केयर",i:3},{en:"Bridal Makeup",hi:"ब्राइडल मेकअप",i:4},{en:"Party Makeup",hi:"पार्टी मेकअप",i:5}];
+/* ===== 10. TRANSLATIONS ===== */
+const I18N={en:{nHome:"Home",nServ:"Services & Prices",nBridal:"Bridal Makeup",nGal:"Gallery",nContact:"Contact & Location",bookSlot:"Book a Slot",callNow:"Call Now",waBook:"Book on WhatsApp",crafted:"Website crafted by Fantovex",
+loc:"Court Road, Williams Town, Deoghar",tagline:"Your Style. Your Signature.",heroTxt:"Discover a fresh salon experience for everyday grooming, elevated beauty, and unforgettable bridal looks in Deoghar.",gRating:"Google Rating",reviews:"Reviews",
+welcome:"Welcome",introH:"A new salon for Deoghar",introP:"M Signature Unisex Salon offers hair, skin, men's grooming and bridal makeup services. Opened 26 September 2026.",tServ:"Hair, skin, grooming and makeup",tBridal:"Bridal, engagement and party looks",tGal:"Demo preview gallery",
+offerH:"A NEW BEAUTY EXPERIENCE IN DEOGHAR",offerP:"Visit M Signature Unisex Salon",demoB:"DEMO PRICE LIST",demoT:"All prices shown are sample prices for website demonstration only. Please confirm actual prices directly with the salon.",demoT2:"All displayed prices are sample prices. Please confirm actual prices directly with the salon.",demoB2:"DEMO GALLERY",demoGal:"Preview placeholders only. Not photographs of the actual salon until real images are supplied.",
+book:"Book This Service",brH:"Bridal & Party Makeup",brP:"Plan your bridal, engagement or party look. Message us to discuss your requirements and confirm availability.",consult:"Bridal Consultation",portfolio:"Portfolio",portH:"Looks preview",partyH:"Party Makeup",partyP:"Makeup for parties, functions and special evenings.",engH:"Engagement Makeup",engP:"A polished look for your engagement day.",consultH:"Book a bridal consultation",
+addr:"Address",phones:"Phone",hours:"Business Hours",hoursT:"Please contact the salon to confirm current opening hours.",callP:"Call Primary Number",callA:"Call Alternate Number",directions:"Get Directions",mapT:"Open the map for directions to the salon.",
+name:"Customer Name",phoneOpt:"Phone Number (optional)",service:"Select Service",date:"Preferred Date",time:"Preferred Time",msgOpt:"Additional Message (optional)",sendWa:"Send on WhatsApp",noConf:"This is only a request. Your booking is not confirmed until you send the WhatsApp message and the salon replies to confirm.",
+req:"This field is required",pastDate:"Choose today or a later date",fLinks:"Quick Links",fCall:"Call",fx:"Website crafted by Fantovex",menuL:"Open menu",closeL:"Close",fabL:"Book on WhatsApp – M Signature Unisex Salon",
+enq:"Hello, I would like to enquire about services and booking at M Signature Unisex Salon.",choose:"Choose a service"},
+hi:{nHome:"होम",nServ:"सेवाएं और दरें",nBridal:"ब्राइडल मेकअप",nGal:"गैलरी",nContact:"संपर्क और पता",bookSlot:"स्लॉट बुक करें",callNow:"अभी कॉल करें",waBook:"WhatsApp पर बुक करें",crafted:"वेबसाइट निर्माता: Fantovex",
+loc:"कोर्ट रोड, विलियम्स टाउन, देवघर",tagline:"आपकी स्टाइल। आपका सिग्नेचर।",heroTxt:"देवघर में रोज़मर्रा की ग्रूमिंग, निखरी सुंदरता और यादगार ब्राइडल लुक का नया सैलून अनुभव पाइए।",gRating:"Google रेटिंग",reviews:"रिव्यू",
+welcome:"स्वागत है",introH:"देवघर के लिए नया सैलून",introP:"M Signature Unisex Salon में हेयर, स्किन, मेन्स ग्रूमिंग और ब्राइडल मेकअप सेवाएं हैं। शुभारंभ: 26 सितंबर 2026।",tServ:"हेयर, स्किन, ग्रूमिंग और मेकअप",tBridal:"ब्राइडल, एंगेजमेंट और पार्टी लुक",tGal:"डेमो प्रीव्यू गैलरी",
+offerH:"देवघर में एक नया ब्यूटी अनुभव",offerP:"M Signature Unisex Salon आइए",demoB:"डेमो प्राइस लिस्ट",demoT:"यहां दिखाई गई सभी कीमतें केवल वेबसाइट डेमो के लिए नमूना कीमतें हैं। असली कीमतें कृपया सैलून से सीधे पूछकर पुष्टि करें।",demoT2:"दिखाई गई सभी कीमतें नमूना कीमतें हैं। असली कीमतें सैलून से पूछकर पुष्टि करें।",demoB2:"डेमो गैलरी",demoGal:"केवल प्रीव्यू प्लेसहोल्डर। असली तस्वीरें मिलने तक ये सैलून की असली फोटो नहीं हैं।",
+book:"यह सेवा बुक करें",brH:"ब्राइडल और पार्टी मेकअप",brP:"अपना ब्राइडल, एंगेजमेंट या पार्टी लुक प्लान करें। अपनी ज़रूरतें बताने और उपलब्धता जानने के लिए संदेश भेजें।",consult:"ब्राइडल कंसल्टेशन",portfolio:"पोर्टफोलियो",portH:"लुक प्रीव्यू",partyH:"पार्टी मेकअप",partyP:"पार्टी, फंक्शन और खास शामों के लिए मेकअप।",engH:"एंगेजमेंट मेकअप",engP:"आपकी सगाई के दिन के लिए निखरा लुक।",consultH:"ब्राइडल कंसल्टेशन बुक करें",
+addr:"पता",phones:"फ़ोन",hours:"खुलने का समय",hoursT:"वर्तमान समय की पुष्टि के लिए कृपया सैलून से संपर्क करें।",callP:"पहले नंबर पर कॉल करें",callA:"दूसरे नंबर पर कॉल करें",directions:"रास्ता देखें",mapT:"सैलून तक रास्ते के लिए मैप खोलें।",
+name:"ग्राहक का नाम",phoneOpt:"फ़ोन नंबर (वैकल्पिक)",service:"सेवा चुनें",date:"पसंदीदा तारीख",time:"पसंदीदा समय",msgOpt:"अतिरिक्त संदेश (वैकल्पिक)",sendWa:"WhatsApp पर भेजें",noConf:"यह केवल अनुरोध है। WhatsApp संदेश भेजने और सैलून के पुष्टि करने तक आपकी बुकिंग कन्फर्म नहीं है।",
+req:"यह जानकारी ज़रूरी है",pastDate:"आज या उसके बाद की तारीख चुनें",fLinks:"क्विक लिंक",fCall:"कॉल",fx:"वेबसाइट निर्माता: Fantovex",menuL:"मेन्यू खोलें",closeL:"बंद करें",fabL:"WhatsApp पर बुक करें – M Signature Unisex Salon",
+enq:"Hello, I would like to enquire about services and booking at M Signature Unisex Salon.",choose:"सेवा चुनें"}};
+/* ===== 3. STATE ===== */
+const PAGES=["home","services","bridal","gallery","contact"];
+const S={lang:"en",tab:"hair",cur:"home"};
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const t=k=>I18N[S.lang][k]!==undefined?I18N[S.lang][k]:I18N.en[k];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const L=(o,k)=>S.lang==="hi"&&o[k+"h"]!==undefined?o[k+"h"]:(S.lang==="hi"&&o.hi&&k==="n"?o.hi:o[k==="n"?"en":k]);
+function toast(m){const e=$("#toast");e.textContent=m;e.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove("on"),2600)}
+function sv(i){return SERVICES[i]}
+/* ===== 4. NAVIGATION ===== */
+function show(p){if(!PAGES.includes(p))p="home";S.cur=p;$$(".page").forEach(e=>e.classList.toggle("on",e.dataset.page===p));$$(".dn .nav").forEach(b=>b.classList.toggle("act",b.dataset.go===p));window.scrollTo(0,0)}
+function go(p){if(location.hash.slice(1)===p)show(p);else location.hash=p}
+window.addEventListener("hashchange",()=>{closeDr(true);closeMd();show(location.hash.slice(1))});
+/* ===== 5. DRAWER ===== */
+let lf=null;
+function openDr(){lf=document.activeElement;$("#dr").classList.add("on");$("#bd").classList.add("on");document.body.classList.add("lock");$("#mBtn").setAttribute("aria-expanded","true");setTimeout(()=>$("#cBtn").focus(),50)}
+function closeDr(skip){if(!$("#dr").classList.contains("on"))return;$("#dr").classList.remove("on");$("#bd").classList.remove("on");if(!$("#md").classList.contains("on"))document.body.classList.remove("lock");$("#mBtn").setAttribute("aria-expanded","false");if(!skip&&lf)lf.focus()}
+/* ===== 6. RENDERING ===== */
+function ph(label,idx){const src=CFG.images[idx];return src?'<img src="'+esc(src)+'" alt="'+esc(label)+'" loading="lazy" onerror="this.remove()">':""}
+function renderPh(){$$("[data-ph]").forEach(e=>{const i=+e.dataset.ph,lab=e.dataset.lab;const g=GAL.find(x=>x.i===i);const lb=g?(S.lang==="hi"?g.hi:g.en):lab;e.innerHTML=ph(lb,i)+'<span>'+esc(lb)+'<em>DEMO PLACEHOLDER</em></span>';e.setAttribute("role","img");e.setAttribute("aria-label",lb+" – demo placeholder")})}
+function renderTabs(){$("#tabs").innerHTML=TABS.map(x=>'<button role="tab" data-tab="'+x.id+'" class="'+(S.tab===x.id?"on":"")+'" aria-selected="'+(S.tab===x.id)+'">'+esc(S.lang==="hi"?x.hi:x.en)+'</button>').join("");
+ $("#svList").innerHTML=SERVICES.map((s,i)=>s.c!==S.tab?"":'<div class="sv"><div><h3>'+esc(S.lang==="hi"?s.hi:s.en)+'</h3><p>'+esc(S.lang==="hi"?s.dh:s.de)+'</p></div><div class="pr">'+esc(S.lang==="hi"&&s.ph?s.ph:s.p)+'</div><button class="bk" data-bks="'+i+'">'+t("book")+'</button></div>').join("")}
+function renderGal(){$("#gg").innerHTML=GAL.map(g=>'<div class="ph" data-ph="'+g.i+'" data-lab="'+esc(g.en)+'"></div>').join("")}
+function renderSel(){const s=$("#bs"),v=s.value;s.innerHTML='<option value="">'+t("choose")+'</option>'+SERVICES.map((x,i)=>'<option value="'+i+'">'+esc(S.lang==="hi"?x.hi:x.en)+'</option>').join("");if(v)s.value=v}
+/* ===== 11. FOOTER ===== */
+function footHTML(){
+ const nav=[["home","nHome"],["services","nServ"],["bridal","nBridal"],["gallery","nGal"],["contact","nContact"]].map(x=>'<button data-go="'+x[0]+'">'+t(x[1])+'</button>').join("");
+ const fxc=CFG.fxContact?' <a href="'+esc(CFG.fxContact)+'" target="_blank" rel="noopener noreferrer">Contact Fantovex</a>':' <a href="'+CFG.fx+'" target="_blank" rel="noopener noreferrer">Contact Fantovex</a>';
+ return '<div class="wrap"><div class="fg"><div><h4>M Signature Unisex Salon</h4><p class="sub">Court Road, Williams Town, Deoghar</p></div><div><h4>'+t("fLinks")+'</h4><nav>'+nav+'</nav></div><div><h4>'+t("fCall")+'</h4><nav><a href="tel:+916205136925">6205136925</a><a href="tel:+919933889700">9933889700</a></nav></div></div>'
+ +'<div class="fx"><span>'+t("fx")+'</span><span><a href="'+CFG.fx+'" target="_blank" rel="noopener noreferrer">Powered by Fantovex</a></span><span>'+fxc.trim()+'</span></div></div>'}
+/* ===== 8. WHATSAPP ===== */
+function waUrl(msg){return "https://wa.me/"+CFG.wa+"?text="+encodeURIComponent(msg)}
+function openWa(msg){const w=window.open(waUrl(msg),"_blank","noopener");if(!w)location.href=waUrl(msg)}
+function waMsg(kind){return kind==="bridal"?"Hello, I would like to enquire about bridal makeup at M Signature Unisex Salon.":"Hello, I would like to enquire about services and booking at M Signature Unisex Salon."}
+function bookService(i){const s=sv(i);openWa("Hello M Signature Unisex Salon!\nI would like to request a booking.\n\nService: "+s.en+" (sample price "+s.p+")\n\nPlease confirm availability and actual pricing.")}
+/* ===== 9. BOOKING FORM ===== */
+let mf=null;
+function openMd(idx){mf=document.activeElement;if(idx!==undefined&&idx!=="")$("#bs").value=idx;$("#bd2").min=today();$("#md").classList.add("on");document.body.classList.add("lock");setTimeout(()=>$("#bn").focus(),50)}
+function closeMd(){if(!$("#md").classList.contains("on"))return;$("#md").classList.remove("on");if(!$("#dr").classList.contains("on"))document.body.classList.remove("lock");if(mf)mf.focus()}
+function today(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function err(el,m){const f=el.closest(".f");f.classList.toggle("bad",!!m);const e=$(".er",f);if(e)e.textContent=m||""}
+function submitBook(){
+ const n=$("#bn"),s=$("#bs"),d=$("#bd2"),tm=$("#bt");
+ const a=n.value.trim()?(err(n,""),true):(err(n,t("req")),false);
+ const b=s.value!==""?(s.closest(".f").classList.remove("bad"),true):(s.closest(".f").classList.add("bad"),false);
+ let c=true;if(!d.value){err(d,t("req"));c=false}else if(d.value<today()){err(d,t("pastDate"));c=false}else err(d,"");
+ const e=tm.value?(err(tm,""),true):(err(tm,t("req")),false);
+ if(!(a&&b&&c&&e))return;
+ const ph=$("#bp").value.trim(),m=$("#bm").value.trim(),x=sv(+s.value);
+ openWa("Hello M Signature Unisex Salon!\nI would like to request a booking.\n\nName: "+n.value.trim()+(ph?"\nPhone: "+ph:"")+"\nService: "+x.en+"\nPreferred Date: "+d.value+"\nPreferred Time: "+tm.value+(m?"\nMessage: "+m:"")+"\n\nPlease confirm availability and actual pricing.");
+ closeMd();
+}
+/* ===== LANGUAGE ===== */
+function applyLang(){
+ document.documentElement.lang=S.lang==="hi"?"hi":"en";
+ $$("[data-i]").forEach(e=>e.textContent=t(e.dataset.i));
+ $$("[data-aria]").forEach(e=>e.setAttribute("aria-label",t(e.dataset.aria)));
+ $$("[data-lang]").forEach(b=>b.classList.toggle("on",b.dataset.lang===S.lang));
+ const r=CFG.marquee.map(x=>"<span>"+esc(x)+"</span>").join("");$("#mt").innerHTML=r+r+r+r;
+ $$("[data-ft]").forEach(f=>f.innerHTML=footHTML());
+ renderTabs();renderGal();renderPh();renderSel();
+}
+/* ===== 12. EVENTS ===== */
+document.addEventListener("click",e=>{
+ if(e.target.id==="bd"){closeDr();return}
+ if(e.target.id==="md"){closeMd();return}
+ const el=e.target.closest("[data-go],[data-book],[data-wa],[data-tab],[data-bks],[data-lang]");if(!el)return;
+ if(el.dataset.go){closeDr(true);go(el.dataset.go)}
+ else if(el.hasAttribute("data-book")){closeDr(true);openMd()}
+ else if(el.dataset.wa){e.preventDefault();openWa(waMsg(el.dataset.wa))}
+ else if(el.dataset.tab){S.tab=el.dataset.tab;renderTabs()}
+ else if(el.dataset.bks!==undefined){bookService(+el.dataset.bks)}
+ else if(el.dataset.lang){S.lang=el.dataset.lang;try{localStorage.setItem("ms_lang",S.lang)}catch(x){}applyLang()}
+});
+document.addEventListener("keydown",e=>{
+ if(e.key==="Escape"){closeMd();closeDr()}
+ if(e.key==="Tab"){const box=$("#md").classList.contains("on")?$("#md .mb"):$("#dr").classList.contains("on")?$("#dr"):null;if(!box)return;
+  const f=$$("button,a,input,select,textarea",box).filter(x=>x.offsetParent!==null&&!x.disabled);if(!f.length)return;const a=f[0],z=f[f.length-1];
+  if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}
+});
+$("#mBtn").addEventListener("click",openDr);
+$("#cBtn").addEventListener("click",()=>closeDr());
+$("#mClose").addEventListener("click",closeMd);
+$("#bf").addEventListener("submit",e=>{e.preventDefault();submitBook()});
+/* ===== INIT ===== */
+(function(){
+ try{const l=localStorage.getItem("ms_lang");if(l==="hi"||l==="en")S.lang=l}catch(x){}
+ $("#dir").href=CFG.dir;$("#dir2").href=CFG.dir;
+ applyLang();const h=location.hash.slice(1);show(PAGES.includes(h)?h:"home");
+})();
+</script>
+</body>
+</html>
